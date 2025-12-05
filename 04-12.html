@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1ed482118961d457d51f906da0b8cc8f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_1ed482118961d457d51f906da0b8cc8f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1ed482118961d457d51f906da0b8cc8f = L.map(
+                "map_1ed482118961d457d51f906da0b8cc8f",
+                {
+                    center: [-37.99616, -57.549242],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3224a9e71e9ff2a0ebb752669fafef15 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3224a9e71e9ff2a0ebb752669fafef15.addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+            var polygon_751c3fd8f4072aea837b5a4d8f24d5d2 = L.polygon(
+                [[-38.015921960108926, -57.54327608619214], [-38.01279684338744, -57.540779805928196], [-38.01530666129943, -57.53580774156578], [-38.01841034629886, -57.53833521349349]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_5f8983dee8f840077395f16ed42c4869 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b827eba8860e06dad26c429aea4b9ca = $(`<div id="html_7b827eba8860e06dad26c429aea4b9ca" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_5f8983dee8f840077395f16ed42c4869.setContent(html_7b827eba8860e06dad26c429aea4b9ca);
+            
+        
+
+        polygon_751c3fd8f4072aea837b5a4d8f24d5d2.bindPopup(popup_5f8983dee8f840077395f16ed42c4869)
+        ;
+
+        
+    
+    
+            polygon_751c3fd8f4072aea837b5a4d8f24d5d2.bindTooltip(
+                `<div>
+                     Cuadrante DRI 24 HS MAS CAMINANTES DEPARTAMENTAL 14 a 22 hs.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_480ddb0233de40c21ccaadef0e9c7e31 = L.polygon(
+                [[-38.01229027504507, -57.561454875621706], [-38.00759244479916, -57.5576463801459], [-38.01058769895877, -57.551721633273885], [-38.015279797549596, -57.55552897059229]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_bf70bfd632bc8a16cdee6afffa6cc028 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ec434028fb1dd5eb735230971d0dab5 = $(`<div id="html_6ec434028fb1dd5eb735230971d0dab5" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_bf70bfd632bc8a16cdee6afffa6cc028.setContent(html_6ec434028fb1dd5eb735230971d0dab5);
+            
+        
+
+        polygon_480ddb0233de40c21ccaadef0e9c7e31.bindPopup(popup_bf70bfd632bc8a16cdee6afffa6cc028)
+        ;
+
+        
+    
+    
+            polygon_480ddb0233de40c21ccaadef0e9c7e31.bindTooltip(
+                `<div>
+                     Cuadrante DRI 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_0d190415d06c155f7512436efcb9cf13 = L.polygon(
+                [[-38.008298064585475, -57.55397569910834], [-38.00436915440016, -57.5508227407291], [-38.006359447751656, -57.546887752475286], [-38.01024768996705, -57.55006773468866]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_c1eb0c67b254d81f5aa93462f06c20cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60e7c57d39426784589f3f29721fe7fc = $(`<div id="html_60e7c57d39426784589f3f29721fe7fc" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_c1eb0c67b254d81f5aa93462f06c20cd.setContent(html_60e7c57d39426784589f3f29721fe7fc);
+            
+        
+
+        polygon_0d190415d06c155f7512436efcb9cf13.bindPopup(popup_c1eb0c67b254d81f5aa93462f06c20cd)
+        ;
+
+        
+    
+    
+            polygon_0d190415d06c155f7512436efcb9cf13.bindTooltip(
+                `<div>
+                     Cuadrante DRI 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_f27e5e150218245ccdb48454162ecd44 = L.polygon(
+                [[-37.99708600515389, -57.549088469400616], [-37.992278763074054, -57.545240687879165], [-37.99741443535382, -57.54130154556004], [-38.00005851083272, -57.54323959907438]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_fe4f33cadf34da399ec13e73f292f7d5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1f10a8377656f994af6cbb3ff69b71e7 = $(`<div id="html_1f10a8377656f994af6cbb3ff69b71e7" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_fe4f33cadf34da399ec13e73f292f7d5.setContent(html_1f10a8377656f994af6cbb3ff69b71e7);
+            
+        
+
+        polygon_f27e5e150218245ccdb48454162ecd44.bindPopup(popup_fe4f33cadf34da399ec13e73f292f7d5)
+        ;
+
+        
+    
+    
+            polygon_f27e5e150218245ccdb48454162ecd44.bindTooltip(
+                `<div>
+                     Cuadrante DRI 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_2d76c224809064f3e70f4d97323390f1 = L.polygon(
+                [[-37.99045375832973, -57.562453107843645], [-37.99526914990601, -57.566325628876555], [-37.99120689843603, -57.574281934673635], [-37.98646318449738, -57.57041421401195]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "violet", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_83544cd173044c3b32e9eb462d82ed39 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c7bd34f3f0a7afda364bff426fcba00 = $(`<div id="html_6c7bd34f3f0a7afda364bff426fcba00" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_83544cd173044c3b32e9eb462d82ed39.setContent(html_6c7bd34f3f0a7afda364bff426fcba00);
+            
+        
+
+        polygon_2d76c224809064f3e70f4d97323390f1.bindPopup(popup_83544cd173044c3b32e9eb462d82ed39)
+        ;
+
+        
+    
+    
+            polygon_2d76c224809064f3e70f4d97323390f1.bindTooltip(
+                `<div>
+                     Cuadrante ¿P. RURAL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_4cd2f426f7b608921238ee7d6d3245f3 = L.polygon(
+                [[-37.98551112417317, -57.55845104123317], [-37.98149243820672, -57.566340766780016], [-37.97521202201469, -57.56123136456748], [-37.979193754230096, -57.55333558945637]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_9df3087adcd357c6a676559843a8ec88 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8615379f7301ab6be49c9b509d01ffbb = $(`<div id="html_8615379f7301ab6be49c9b509d01ffbb" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_9df3087adcd357c6a676559843a8ec88.setContent(html_8615379f7301ab6be49c9b509d01ffbb);
+            
+        
+
+        polygon_4cd2f426f7b608921238ee7d6d3245f3.bindPopup(popup_9df3087adcd357c6a676559843a8ec88)
+        ;
+
+        
+    
+    
+            polygon_4cd2f426f7b608921238ee7d6d3245f3.bindTooltip(
+                `<div>
+                     Cuadrante DRI 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_f92ee0308b9fc32c734479fe4bcd24d5 = L.polygon(
+                [[-37.980132743463564, -57.59622593885163], [-37.978475206075494, -57.59940167397589], [-37.97380683837522, -57.595582208758884], [-37.97537990848647, -57.592642508001965]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_12381274546a937fc65f6b3b1e2cfa52 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54aa3876c4de3948628ecdbf6e2d8a83 = $(`<div id="html_54aa3876c4de3948628ecdbf6e2d8a83" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_12381274546a937fc65f6b3b1e2cfa52.setContent(html_54aa3876c4de3948628ecdbf6e2d8a83);
+            
+        
+
+        polygon_f92ee0308b9fc32c734479fe4bcd24d5.bindPopup(popup_12381274546a937fc65f6b3b1e2cfa52)
+        ;
+
+        
+    
+    
+            polygon_f92ee0308b9fc32c734479fe4bcd24d5.bindTooltip(
+                `<div>
+                     Movil FBA 16 a 24 hs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_1a5a281ed1748775b01734545dcb68ac = L.polygon(
+                [[-38.023119457752735, -57.57434366926552], [-38.01985700113037, -57.57039545802995], [-38.02303493998384, -57.56618975475729], [-38.026347963533645, -57.57005213531382]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_27c9c935640b96cde3f7c4e9c7d792db = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b69fc9b672c28d16919e98fc0c309274 = $(`<div id="html_b69fc9b672c28d16919e98fc0c309274" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_27c9c935640b96cde3f7c4e9c7d792db.setContent(html_b69fc9b672c28d16919e98fc0c309274);
+            
+        
+
+        polygon_1a5a281ed1748775b01734545dcb68ac.bindPopup(popup_27c9c935640b96cde3f7c4e9c7d792db)
+        ;
+
+        
+    
+    
+            polygon_1a5a281ed1748775b01734545dcb68ac.bindTooltip(
+                `<div>
+                     Movil FBA 16 a 24 hs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_b4d6ef3b5e6de263039931c7841536ed = L.polygon(
+                [[-38.02256163869517, -57.5870251521872], [-38.02699026710728, -57.58116720834314], [-38.019586531904096, -57.572283733063124], [-38.01845497295051, -57.57524690652832], [-38.01828488470133, -57.576768386042644], [-38.02048245745461, -57.58453606249522]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_ee723ac0a704fd5639b84d688fe07bb2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52c710f3ed605b44d73df2baf594ad7c = $(`<div id="html_52c710f3ed605b44d73df2baf594ad7c" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_ee723ac0a704fd5639b84d688fe07bb2.setContent(html_52c710f3ed605b44d73df2baf594ad7c);
+            
+        
+
+        polygon_b4d6ef3b5e6de263039931c7841536ed.bindPopup(popup_ee723ac0a704fd5639b84d688fe07bb2)
+        ;
+
+        
+    
+    
+            polygon_b4d6ef3b5e6de263039931c7841536ed.bindTooltip(
+                `<div>
+                     Movil FBA 16 a 24 hs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_13cd440fbd11b53439b1ec77fce105c4 = L.polygon(
+                [[-37.97919863902982, -57.59836974724204], [-37.98383283858591, -57.602232127798565], [-37.98638659720263, -57.597275406084364], [-37.981718732753215, -57.59349885620687]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_7ab3c4db37977542e2a525df80857d34 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1daff1c3d53e8065ac48ac773696a89c = $(`<div id="html_1daff1c3d53e8065ac48ac773696a89c" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_7ab3c4db37977542e2a525df80857d34.setContent(html_1daff1c3d53e8065ac48ac773696a89c);
+            
+        
+
+        polygon_13cd440fbd11b53439b1ec77fce105c4.bindPopup(popup_7ab3c4db37977542e2a525df80857d34)
+        ;
+
+        
+    
+    
+            polygon_13cd440fbd11b53439b1ec77fce105c4.bindTooltip(
+                `<div>
+                     Movil FBA 16 a 24 hs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_b9697eea0c3b398acb7d39c39fbb33f8 = L.polygon(
+                [[-38.06972381695445, -57.55881591842591], [-38.06584572610598, -57.554142605455226], [-38.069638586372456, -57.5490903752061], [-38.07355908915364, -57.55374564449986]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_609b3fd21d83fbbd6060c4eede136dbc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93ba1bb29725a8cad310d2ec2ff0dd2d = $(`<div id="html_93ba1bb29725a8cad310d2ec2ff0dd2d" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_609b3fd21d83fbbd6060c4eede136dbc.setContent(html_93ba1bb29725a8cad310d2ec2ff0dd2d);
+            
+        
+
+        polygon_b9697eea0c3b398acb7d39c39fbb33f8.bindPopup(popup_609b3fd21d83fbbd6060c4eede136dbc)
+        ;
+
+        
+    
+    
+            polygon_b9697eea0c3b398acb7d39c39fbb33f8.bindTooltip(
+                `<div>
+                     Movil FBA 16 a 24 hs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_a988b4fd0e1fdfff5595c56c11cc3ea6 = L.polygon(
+                [[-37.97399925245756, -57.594515896036974], [-37.96929676817929, -57.59062132897582], [-37.966285666769714, -57.59662947658137], [-37.97099373813294, -57.60028720277397]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_50c43cc8d7d8c9c6803874bd48ea1c66 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a238a4ea48833e4c8d887f18a589cc3 = $(`<div id="html_1a238a4ea48833e4c8d887f18a589cc3" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_50c43cc8d7d8c9c6803874bd48ea1c66.setContent(html_1a238a4ea48833e4c8d887f18a589cc3);
+            
+        
+
+        polygon_a988b4fd0e1fdfff5595c56c11cc3ea6.bindPopup(popup_50c43cc8d7d8c9c6803874bd48ea1c66)
+        ;
+
+        
+    
+    
+            polygon_a988b4fd0e1fdfff5595c56c11cc3ea6.bindTooltip(
+                `<div>
+                     Cuadrante DRI 16 a 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_e4a4bad38c5419bba51be996d3a94f67 = L.polygon(
+                [[-38.00626800880839, -57.56244182248508], [-38.00389247630785, -57.567516561382945], [-38.010063628822955, -57.5725376562398], [-38.012540397366536, -57.567623849810815]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_5ad2f1ae18a1a3b1e94ae901253aa83c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b7038caf2b517878e42133e4c8ab44db = $(`<div id="html_b7038caf2b517878e42133e4c8ab44db" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_5ad2f1ae18a1a3b1e94ae901253aa83c.setContent(html_b7038caf2b517878e42133e4c8ab44db);
+            
+        
+
+        polygon_e4a4bad38c5419bba51be996d3a94f67.bindPopup(popup_5ad2f1ae18a1a3b1e94ae901253aa83c)
+        ;
+
+        
+    
+    
+            polygon_e4a4bad38c5419bba51be996d3a94f67.bindTooltip(
+                `<div>
+                     Cuadrante GPM 18 a 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_e0d434d435f46e3a8131cef4e3246dff = L.polygon(
+                [[-38.0004023951273, -57.55628869699861], [-38.005906634798, -57.56074887051323], [-38.00391586139406, -57.564734558833585], [-37.998375874036775, -57.56028281242546]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "violet", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_8c29dc41c27d00078963542d495a04e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87445986b6fd5fdc5900b2625fd966f0 = $(`<div id="html_87445986b6fd5fdc5900b2625fd966f0" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_8c29dc41c27d00078963542d495a04e5.setContent(html_87445986b6fd5fdc5900b2625fd966f0);
+            
+        
+
+        polygon_e0d434d435f46e3a8131cef4e3246dff.bindPopup(popup_8c29dc41c27d00078963542d495a04e5)
+        ;
+
+        
+    
+    
+            polygon_e0d434d435f46e3a8131cef4e3246dff.bindTooltip(
+                `<div>
+                     Cuadrante P. RURAL 12 a 22 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_69fc48f1c3b5ba15d7f3d8336b707e30 = L.polygon(
+                [[-38.01428557920399, -57.5420758665727], [-38.00866592916484, -57.53747147452996], [-38.00729885302882, -57.54056848886206], [-38.01282450782751, -57.54500781886381]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_83820887411a1f236e9eae5750e8123b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95edb49612c0b7cc7515fece1514119f = $(`<div id="html_95edb49612c0b7cc7515fece1514119f" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_83820887411a1f236e9eae5750e8123b.setContent(html_95edb49612c0b7cc7515fece1514119f);
+            
+        
+
+        polygon_69fc48f1c3b5ba15d7f3d8336b707e30.bindPopup(popup_83820887411a1f236e9eae5750e8123b)
+        ;
+
+        
+    
+    
+            polygon_69fc48f1c3b5ba15d7f3d8336b707e30.bindTooltip(
+                `<div>
+                     Cuadrante GPM 10 a 14 y 18 a 22 HS MAS CAMINANTES CABALLERIA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_5752bf6f74266867915bba3aa21a513f = L.polygon(
+                [[-38.02323489680772, -57.56596828912126], [-38.02786821132611, -57.55980578544938], [-38.03112442191086, -57.563646186288366], [-38.02643101062859, -57.569949036834764]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_de5c58fe5506388f840b88b06b2cda3d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95e892643afadb4e3a2ca77f4e2d4964 = $(`<div id="html_95e892643afadb4e3a2ca77f4e2d4964" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_de5c58fe5506388f840b88b06b2cda3d.setContent(html_95e892643afadb4e3a2ca77f4e2d4964);
+            
+        
+
+        polygon_5752bf6f74266867915bba3aa21a513f.bindPopup(popup_de5c58fe5506388f840b88b06b2cda3d)
+        ;
+
+        
+    
+    
+            polygon_5752bf6f74266867915bba3aa21a513f.bindTooltip(
+                `<div>
+                     Cuadrante GPM 18 a 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_ddd0d315309d8f53acc3b5822ca11802 = L.polygon(
+                [[-38.0355964506787, -57.54947115133353], [-38.03181785562025, -57.554510880009296], [-38.035073890636674, -57.55842783368893], [-38.03882217146963, -57.55338810501317]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_6decd75c9692be1d00d1acd4a708092b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3d7eb9524f38cb0bb845d1cd494756b = $(`<div id="html_b3d7eb9524f38cb0bb845d1cd494756b" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_6decd75c9692be1d00d1acd4a708092b.setContent(html_b3d7eb9524f38cb0bb845d1cd494756b);
+            
+        
+
+        polygon_ddd0d315309d8f53acc3b5822ca11802.bindPopup(popup_6decd75c9692be1d00d1acd4a708092b)
+        ;
+
+        
+    
+    
+            polygon_ddd0d315309d8f53acc3b5822ca11802.bindTooltip(
+                `<div>
+                     Cuadrante GPM 18 a 24 HS 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_61bc91be5d9f83faea7542d891c51b1b = L.polygon(
+                [[-37.97937953458343, -57.57052089720828], [-37.97622159871685, -57.56804568869974], [-37.973264682072625, -57.573876463509194], [-37.97636001351693, -57.576432876227315]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_d778a529ea3a600815d50dc2bb35cf8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cac0700ad1c48e872a9ec1cbdb5d6bd0 = $(`<div id="html_cac0700ad1c48e872a9ec1cbdb5d6bd0" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_d778a529ea3a600815d50dc2bb35cf8f.setContent(html_cac0700ad1c48e872a9ec1cbdb5d6bd0);
+            
+        
+
+        polygon_61bc91be5d9f83faea7542d891c51b1b.bindPopup(popup_d778a529ea3a600815d50dc2bb35cf8f)
+        ;
+
+        
+    
+    
+            polygon_61bc91be5d9f83faea7542d891c51b1b.bindTooltip(
+                `<div>
+                     Cuadrante GPM  18 a 24
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_a370f174782d86e18875d99a068311af = L.polygon(
+                [[-38.0333772356612, -57.588484074594746], [-38.03922480960536, -57.58072712697707], [-38.0364785360547, -57.57737973038498], [-38.03063074280234, -57.58517959337405]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_3895931c0a35133103c7e4869ead49b1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6e8b691855cf52b10e4f0746f0231f8 = $(`<div id="html_b6e8b691855cf52b10e4f0746f0231f8" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_3895931c0a35133103c7e4869ead49b1.setContent(html_b6e8b691855cf52b10e4f0746f0231f8);
+            
+        
+
+        polygon_a370f174782d86e18875d99a068311af.bindPopup(popup_3895931c0a35133103c7e4869ead49b1)
+        ;
+
+        
+    
+    
+            polygon_a370f174782d86e18875d99a068311af.bindTooltip(
+                `<div>
+                     Cuadrante GPM  18 a 24
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_3a57a59f5fca3650201a124abbdea71b = L.polygon(
+                [[-38.012789639361664, -57.54507487410137], [-38.00726687159889, -57.540628272974494], [-38.005657533264554, -57.543485576860135], [-38.0112953372057, -57.54799247739119]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_4b00cce13c0a7f190f2d94f4b0590982 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1559dcdffe77ebb969221491efaec9e = $(`<div id="html_e1559dcdffe77ebb969221491efaec9e" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_4b00cce13c0a7f190f2d94f4b0590982.setContent(html_e1559dcdffe77ebb969221491efaec9e);
+            
+        
+
+        polygon_3a57a59f5fca3650201a124abbdea71b.bindPopup(popup_4b00cce13c0a7f190f2d94f4b0590982)
+        ;
+
+        
+    
+    
+            polygon_3a57a59f5fca3650201a124abbdea71b.bindTooltip(
+                `<div>
+                     Cuadrante GPM 10 a 14 y 18 a 22 HS MAS CAMINANTES CABALLERIA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_3dc69ffbe0365652cf7e532d8bfe4495 = L.polygon(
+                [[-38.00630646012648, -57.54685372784358], [-38.00305449157595, -57.54423405522884], [-38.002086426515696, -57.546189359911786], [-38.00532775569647, -57.54878832314193]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_3863f84a01a57a68b9ca5d8a45525a3a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_961ba42da37b8983594cb019c89dcb53 = $(`<div id="html_961ba42da37b8983594cb019c89dcb53" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_3863f84a01a57a68b9ca5d8a45525a3a.setContent(html_961ba42da37b8983594cb019c89dcb53);
+            
+        
+
+        polygon_3dc69ffbe0365652cf7e532d8bfe4495.bindPopup(popup_3863f84a01a57a68b9ca5d8a45525a3a)
+        ;
+
+        
+    
+    
+            polygon_3dc69ffbe0365652cf7e532d8bfe4495.bindTooltip(
+                `<div>
+                     Cuadrante GPM 10 a 14 y 18 a 22 HS MAS PAREJA CAMINANTE DEPARTAMENTAL 14 a 22 hs.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_9f8d4b4d9a749f5b6f76901148b51614 = L.polygon(
+                [[-38.00529658221465, -57.54885739001645], [-38.00205551890156, -57.546251721264504], [-38.00057622343062, -57.54917176287738], [-38.003804825395186, -57.55180308101179]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_986b8d906bee5785770b6f204bae6496 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0341ffd33f2ed770f504a9f655517f7e = $(`<div id="html_0341ffd33f2ed770f504a9f655517f7e" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_986b8d906bee5785770b6f204bae6496.setContent(html_0341ffd33f2ed770f504a9f655517f7e);
+            
+        
+
+        polygon_9f8d4b4d9a749f5b6f76901148b51614.bindPopup(popup_986b8d906bee5785770b6f204bae6496)
+        ;
+
+        
+    
+    
+            polygon_9f8d4b4d9a749f5b6f76901148b51614.bindTooltip(
+                `<div>
+                     Cuadrante GPM 10 a 14 y 18 a 22 HS MAS PAREJA CAMINANTE DEPARTAMENTAL 14 a 22 hs.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_e2b2010702cbbbfe03978313af465a18 = L.polygon(
+                [[-38.003294937297085, -57.552860792776826], [-37.999244543689564, -57.549630466356746], [-37.99880159217814, -57.550491166496975], [-38.000085594923526, -57.555881374845704], [-38.00125850741879, -57.55683164983518]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Grey", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_573d84f9784312425539cf33d6f2962c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4162d2a4e282b5f0490e54d9d240e66a = $(`<div id="html_4162d2a4e282b5f0490e54d9d240e66a" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_573d84f9784312425539cf33d6f2962c.setContent(html_4162d2a4e282b5f0490e54d9d240e66a);
+            
+        
+
+        polygon_e2b2010702cbbbfe03978313af465a18.bindPopup(popup_573d84f9784312425539cf33d6f2962c)
+        ;
+
+        
+    
+    
+            polygon_e2b2010702cbbbfe03978313af465a18.bindTooltip(
+                `<div>
+                     Cuadrante GPM 10 a 14 y 18 a 22 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_c3496e8799393b3365f196278ec61a21 = L.polygon(
+                [[-37.99869384851834, -57.546258112774545], [-38.000985426965855, -57.541664658719654], [-38.00277602409516, -57.54251380460794], [-38.00024246031673, -57.547503457089974], [-37.9995636710683, -57.54696445485035], [-37.99812216669712, -57.549908849878996], [-37.99787803819202, -57.54971371948786], [-37.99937047724972, -57.54680383511831]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_2bcc8d7c9a4d82912cab17fb6dd507f8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_870f20db4f35fb0f16e66d2211b22b59 = $(`<div id="html_870f20db4f35fb0f16e66d2211b22b59" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_2bcc8d7c9a4d82912cab17fb6dd507f8.setContent(html_870f20db4f35fb0f16e66d2211b22b59);
+            
+        
+
+        polygon_c3496e8799393b3365f196278ec61a21.bindPopup(popup_2bcc8d7c9a4d82912cab17fb6dd507f8)
+        ;
+
+        
+    
+    
+            polygon_c3496e8799393b3365f196278ec61a21.bindTooltip(
+                `<div>
+                     CAMINANTES 14 a 22 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_4daeb0b08306af65b311b94188d73a15 = L.polygon(
+                [[-37.99897807094964, -57.55218817529692], [-37.99689820799106, -57.55626408985691], [-37.993662319109774, -57.55367410963212], [-37.995747259340234, -57.5495851474829]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_d5127f246562389b72074e275337ae32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7f2c939266b68b2df007730766b3e94 = $(`<div id="html_c7f2c939266b68b2df007730766b3e94" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_d5127f246562389b72074e275337ae32.setContent(html_c7f2c939266b68b2df007730766b3e94);
+            
+        
+
+        polygon_4daeb0b08306af65b311b94188d73a15.bindPopup(popup_d5127f246562389b72074e275337ae32)
+        ;
+
+        
+    
+    
+            polygon_4daeb0b08306af65b311b94188d73a15.bindTooltip(
+                `<div>
+                     CAMINANTES 14 a 22 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_a7ddced5e21bb6423e9652bacf8d9f74 = L.polygon(
+                [[-37.99148469439051, -57.560384435206], [-37.99545921038124, -57.56356433229742], [-37.997955682258265, -57.55865067543321], [-37.99398604598546, -57.555442639775464]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "Blue", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_4a4f2854e6f1de09ed7f7c3a9093cfee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a86aa4053288e743eafda5e636b67ca = $(`<div id="html_8a86aa4053288e743eafda5e636b67ca" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_4a4f2854e6f1de09ed7f7c3a9093cfee.setContent(html_8a86aa4053288e743eafda5e636b67ca);
+            
+        
+
+        polygon_a7ddced5e21bb6423e9652bacf8d9f74.bindPopup(popup_4a4f2854e6f1de09ed7f7c3a9093cfee)
+        ;
+
+        
+    
+    
+            polygon_a7ddced5e21bb6423e9652bacf8d9f74.bindTooltip(
+                `<div>
+                     CAMINANTES 14 a 22 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_565c8857d87b3b65a8032b480519f568 = L.polygon(
+                [[-37.98551112417317, -57.55845104123317], [-37.98149243820672, -57.566340766780016], [-37.97521202201469, -57.56123136456748], [-37.979193754230096, -57.55333558945637]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_2e7af8e636e71243561c29f6d8a58a1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c1ff13fa30245f68e64263b8e7552b68 = $(`<div id="html_c1ff13fa30245f68e64263b8e7552b68" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_2e7af8e636e71243561c29f6d8a58a1e.setContent(html_c1ff13fa30245f68e64263b8e7552b68);
+            
+        
+
+        polygon_565c8857d87b3b65a8032b480519f568.bindPopup(popup_2e7af8e636e71243561c29f6d8a58a1e)
+        ;
+
+        
+    
+    
+            polygon_565c8857d87b3b65a8032b480519f568.bindTooltip(
+                `<div>
+                     Cuadrante DRI 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_608e7c98c184962e628c8ffe8d668472 = L.polygon(
+                [[-38.02646675844749, -57.53351408230806], [-38.03034997074019, -57.53673648397381], [-38.027843051000886, -57.54164168363442], [-38.023954069204216, -57.53852542341271]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_19265c321223397412845765e15785c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc8e75d179fe8aa3f166fc1a251640f6 = $(`<div id="html_dc8e75d179fe8aa3f166fc1a251640f6" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_19265c321223397412845765e15785c9.setContent(html_dc8e75d179fe8aa3f166fc1a251640f6);
+            
+        
+
+        polygon_608e7c98c184962e628c8ffe8d668472.bindPopup(popup_19265c321223397412845765e15785c9)
+        ;
+
+        
+    
+    
+            polygon_608e7c98c184962e628c8ffe8d668472.bindTooltip(
+                `<div>
+                     Cuadrante INFANTERIA 12 a 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_8e3c3f3f6211d4e0c8b96a4c7466a5c0 = L.polygon(
+                [[-37.96205873299655, -57.56065044274057], [-37.96556862344554, -57.55376273441559], [-37.97030106592468, -57.55757643619935], [-37.96677996379576, -57.56447783939106]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_5e4d7ad475d328d78cc4e716a18602cc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3d3c14caa239973b11db2ce9e9c1dfe = $(`<div id="html_a3d3c14caa239973b11db2ce9e9c1dfe" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_5e4d7ad475d328d78cc4e716a18602cc.setContent(html_a3d3c14caa239973b11db2ce9e9c1dfe);
+            
+        
+
+        polygon_8e3c3f3f6211d4e0c8b96a4c7466a5c0.bindPopup(popup_5e4d7ad475d328d78cc4e716a18602cc)
+        ;
+
+        
+    
+    
+            polygon_8e3c3f3f6211d4e0c8b96a4c7466a5c0.bindTooltip(
+                `<div>
+                     Cuadrante CABALLERIA 12 a 24 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_abe505ba855fc5fad84baa964f1c1d7f = L.polygon(
+                [[-38.02449006523629, -57.55312364860065], [-38.029469978276246, -57.557125023791095], [-38.02291573136958, -57.56577306743115], [-38.01949623100172, -57.5630243057946]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "violet", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_a973b53cfdf193e1ef4d06725e0d2675 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f90f6f274301a1f1b0769b1fa0ee0ad = $(`<div id="html_9f90f6f274301a1f1b0769b1fa0ee0ad" style="width: 100.0%; height: 100.0%;">Zona de Interés Delimitada</div>`)[0];
+                popup_a973b53cfdf193e1ef4d06725e0d2675.setContent(html_9f90f6f274301a1f1b0769b1fa0ee0ad);
+            
+        
+
+        polygon_abe505ba855fc5fad84baa964f1c1d7f.bindPopup(popup_a973b53cfdf193e1ef4d06725e0d2675)
+        ;
+
+        
+    
+    
+            polygon_abe505ba855fc5fad84baa964f1c1d7f.bindTooltip(
+                `<div>
+                     Cuadrante P. RURAL 12 a 22 HS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_457e912708155c4a2ebc364500ae8697 = L.circleMarker(
+                [-37.9976969984, -57.5569509992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_73bbf706afedb59cccb9c32dd923d60b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9dadefa436b285a23a1a0d07a4b229d2 = $(`<div id="html_9dadefa436b285a23a1a0d07a4b229d2" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 23:46<br>     <b>Relato:</b> LLAMANTE REDFIERE QUE ERAN DOS DELICNUENTES EN UNA MOTO CROSS COLOR BLANCA Y ROJA , NO ESTABAN ARMADOS LE ROBARON A UNA MUJER EN LA CALLE__SE FUIERON SOBRE MORENO EN CONTRAMANOY AGARARON ESPAÑA__NO LA LASTIMARON, ESTÁ ASUSTADA__     </div>`)[0];
+                popup_73bbf706afedb59cccb9c32dd923d60b.setContent(html_9dadefa436b285a23a1a0d07a4b229d2);
+            
+        
+
+        circle_marker_457e912708155c4a2ebc364500ae8697.bindPopup(popup_73bbf706afedb59cccb9c32dd923d60b)
+        ;
+
+        
+    
+    
+            circle_marker_457e912708155c4a2ebc364500ae8697.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf1c23cee0513f458f1fce00252c6c8b = L.circleMarker(
+                [-37.9774830462, -57.6014697421],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_ed0fa61a9fdd8dc543fdcf0cc4bc5e2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c35bb3fa724e081e9f8c68f769e042a8 = $(`<div id="html_c35bb3fa724e081e9f8c68f769e042a8" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 23:13<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE LE ROBAN LA BICICLETA A UN CHICO EN LA CALLE. AGRESORES DOS AMSCULINOS VISTEN DE NEGRO Y GRIS, NO SABE ARMADOS. NO SABE QUE BICICLETA ES. NO SABE SI HAY EHRIDOS      </div>`)[0];
+                popup_ed0fa61a9fdd8dc543fdcf0cc4bc5e2b.setContent(html_c35bb3fa724e081e9f8c68f769e042a8);
+            
+        
+
+        circle_marker_cf1c23cee0513f458f1fce00252c6c8b.bindPopup(popup_ed0fa61a9fdd8dc543fdcf0cc4bc5e2b)
+        ;
+
+        
+    
+    
+            circle_marker_cf1c23cee0513f458f1fce00252c6c8b.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3183e4015728227871114dbeb71fa0da = L.circleMarker(
+                [-37.978390627088, -57.600795047713],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_8008924f49d597f0346b274ca8ce35f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aacf6b5c430e546e8da45c728789de44 = $(`<div id="html_aacf6b5c430e546e8da45c728789de44" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 23:09<br>     <b>Relato:</b> LLAMANTE REFIERE QUE A UN MUCHACHO LO TIRARON DE LA MOTO. FUE POR UN ROBO, NO APORTA MÁS DATOS.      </div>`)[0];
+                popup_8008924f49d597f0346b274ca8ce35f5.setContent(html_aacf6b5c430e546e8da45c728789de44);
+            
+        
+
+        circle_marker_3183e4015728227871114dbeb71fa0da.bindPopup(popup_8008924f49d597f0346b274ca8ce35f5)
+        ;
+
+        
+    
+    
+            circle_marker_3183e4015728227871114dbeb71fa0da.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9f531c76be6c606209a25cfd6af9ce9 = L.circleMarker(
+                [-38.03092325446, -57.555230669975],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_f9ea1d8a9d511dfced39e005c2b310ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e345c9089cc8b6ac413d4c3dc02c20fc = $(`<div id="html_e345c9089cc8b6ac413d4c3dc02c20fc" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 22:50<br>     <b>Relato:</b> __LLAMANTE INFORMA QUE VE A TRES MASCULINOS INGRESAR POR LA PUERTA DE LA PANADERIA, CREE QUE LA ENCONTARON ABIERTA O LA ABRIERON PORQUE LA PANADERIA ESTA CERRADA AL PUBLICO.      </div>`)[0];
+                popup_f9ea1d8a9d511dfced39e005c2b310ca.setContent(html_e345c9089cc8b6ac413d4c3dc02c20fc);
+            
+        
+
+        circle_marker_c9f531c76be6c606209a25cfd6af9ce9.bindPopup(popup_f9ea1d8a9d511dfced39e005c2b310ca)
+        ;
+
+        
+    
+    
+            circle_marker_c9f531c76be6c606209a25cfd6af9ce9.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5854757fd4113940c4b20026486e55a2 = L.circleMarker(
+                [-38.0309477972, -57.5553422746],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_01029b41b694af120c2596e9056cc64b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd6d4eb5047e6cfa902f7ab961ba53fb = $(`<div id="html_fd6d4eb5047e6cfa902f7ab961ba53fb" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 22:44<br>     <b>Relato:</b> LLAMANTE DICE QUE PASO POR EL LUGAR Y VIO QUE ESTAN TODAS LAS LUCES APAGADAS Y LA PUERTA ABIERTA. NO VIO NADA MAS. NO SABE SI ENTRARON A ROBAR O QUE PASO.      </div>`)[0];
+                popup_01029b41b694af120c2596e9056cc64b.setContent(html_fd6d4eb5047e6cfa902f7ab961ba53fb);
+            
+        
+
+        circle_marker_5854757fd4113940c4b20026486e55a2.bindPopup(popup_01029b41b694af120c2596e9056cc64b)
+        ;
+
+        
+    
+    
+            circle_marker_5854757fd4113940c4b20026486e55a2.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f50efb71ff822a68b2765f7dc4252f50 = L.circleMarker(
+                [-38.0123386125, -57.5658626528],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_81f219ca55e52bd807dd2616653dd399 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_72ef560236102ea7ab10f57b56bddc60 = $(`<div id="html_72ef560236102ea7ab10f57b56bddc60" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 21:59<br>     <b>Relato:</b> LLAMANTE REFIERE QUE VAN CAMINANDO 3 MASCULINOS CON CARROS ROBADOS DEL SUPERMERCADO. SE VAN POR INDEPENDIA EN DIRECCIO A JUAN B JUSTO, CON CARROS DE VEA. NO VIO QUE ESTEN ARMADOS. CREE QUE LOS SACARON A LA TARDE Y LOS TENIAN ESCONDIDOS-      </div>`)[0];
+                popup_81f219ca55e52bd807dd2616653dd399.setContent(html_72ef560236102ea7ab10f57b56bddc60);
+            
+        
+
+        circle_marker_f50efb71ff822a68b2765f7dc4252f50.bindPopup(popup_81f219ca55e52bd807dd2616653dd399)
+        ;
+
+        
+    
+    
+            circle_marker_f50efb71ff822a68b2765f7dc4252f50.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6635f1cb27887abfa76057cddd8a2789 = L.circleMarker(
+                [-37.9620040394, -57.6185728214],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_c6d0e24c4fc19c61320d21820295b713 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70563d09ff29dca81ab22f5bba06e833 = $(`<div id="html_70563d09ff29dca81ab22f5bba06e833" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 21:44<br>     <b>Relato:</b> EN PROCESO. LLAMANTE DICE QUE HAY UNOS CHICOS LIMPIANDO VIDRIOS Y SE ACERCAN A LAS CAJAS DE LAS CAMIONETAS MIRANDO ADENTRO COMO PARA ROBAR ALGO. ERAN 3 O 4 SUJETOS, ESTAN POR LA AVDA., UNO DE ELLOS CON REMERA DE ARGENTINA Y VICERA, NO VIO ARMAS. SIN HERIDOS.      </div>`)[0];
+                popup_c6d0e24c4fc19c61320d21820295b713.setContent(html_70563d09ff29dca81ab22f5bba06e833);
+            
+        
+
+        circle_marker_6635f1cb27887abfa76057cddd8a2789.bindPopup(popup_c6d0e24c4fc19c61320d21820295b713)
+        ;
+
+        
+    
+    
+            circle_marker_6635f1cb27887abfa76057cddd8a2789.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b63530c715fe7354c8064d6c9673cf67 = L.circleMarker(
+                [-38.046548358892, -57.580523879304],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_92b435110b63734eeac6090255643c29 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58759dcb8b54a18f254d0d0276c17109 = $(`<div id="html_58759dcb8b54a18f254d0d0276c17109" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 21:22<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE LE ROBAN EL AUTO A SU CUÑADO, ESTABA ESTACIONADO. AUTO CORSA COLOR GRIS, PATENTE NO RECUERDO. FUGAN HACIA PLAZA SAN MARTIN HACIA JACINTO PERALTA RAMOS. AGRESORES DOS MASCULINOS NO SABE ARMDOS      </div>`)[0];
+                popup_92b435110b63734eeac6090255643c29.setContent(html_58759dcb8b54a18f254d0d0276c17109);
+            
+        
+
+        circle_marker_b63530c715fe7354c8064d6c9673cf67.bindPopup(popup_92b435110b63734eeac6090255643c29)
+        ;
+
+        
+    
+    
+            circle_marker_b63530c715fe7354c8064d6c9673cf67.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3074f2ef050a9c90b03d8aed6cf39bbb = L.circleMarker(
+                [-38.097, -57.5551],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_c93d04f4fa64b25db12aeb3d0ebcc54c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a93df1f7ae4f1f189226bab6954d3482 = $(`<div id="html_a93df1f7ae4f1f189226bab6954d3482" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 21:13<br>     <b>Relato:</b> EL LLAMANTE REFIERE QUE  LE ROBARON LA MOTO ZANELLA DUE NEGRO 110 PATENTE 798 IMU . DOS DELINCUENTES . NO VIO ARMAS. LO TIRARON DE LA MOTO. FUGAN PARA DENTRO DEL ARROYO, HACIA EL BOSQUE PERALTA RAMOS. NO HAY HERIDOS.      </div>`)[0];
+                popup_c93d04f4fa64b25db12aeb3d0ebcc54c.setContent(html_a93df1f7ae4f1f189226bab6954d3482);
+            
+        
+
+        circle_marker_3074f2ef050a9c90b03d8aed6cf39bbb.bindPopup(popup_c93d04f4fa64b25db12aeb3d0ebcc54c)
+        ;
+
+        
+    
+    
+            circle_marker_3074f2ef050a9c90b03d8aed6cf39bbb.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2899b54c275b5c015bbb0ddb739aab7 = L.circleMarker(
+                [-38.0117, -57.561],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_a3b8232fa9026c1077c0f52400036e1b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0934cb5d8b6ccb78f69d226a65d76aba = $(`<div id="html_0934cb5d8b6ccb78f69d226a65d76aba" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 21:00<br>     <b>Relato:</b> LLAMANTE REFIERE QUE HAY UN MASCULINO CON GORRA, REMERA Y PANTALON CORTO DE CLARITO QUE ESTABA ROBANDO ABAJO DE UN AUTO TIRADO. LE DIJO QUE SE QUEDARA CALLADO. SIGUIO CAMINANDO PARA EL LADO DE INDEPENDENCIA POR RODRIGUEZ PEÑA Y LA RIOJA, CRUZANDO LA CALLE.      </div>`)[0];
+                popup_a3b8232fa9026c1077c0f52400036e1b.setContent(html_0934cb5d8b6ccb78f69d226a65d76aba);
+            
+        
+
+        circle_marker_b2899b54c275b5c015bbb0ddb739aab7.bindPopup(popup_a3b8232fa9026c1077c0f52400036e1b)
+        ;
+
+        
+    
+    
+            circle_marker_b2899b54c275b5c015bbb0ddb739aab7.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d1092f1966433c9590d77c713fff64a9 = L.circleMarker(
+                [-37.9794209985, -57.6044339992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_6c6628fc7e4ca42c27d3944ec24ce44f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6a9c51113700da5f9680f00f042cbed = $(`<div id="html_f6a9c51113700da5f9680f00f042cbed" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 20:28<br>     <b>Relato:</b> LLAMANTE REFIERE QUE HAY UN MACULINO QUE QUISO ROBARLE A UN UBER, VISTE CON REMERA NEGRA CON RAYAS, ARMADO CON REVOLVER, ESTÁ EN EL MEDIO DE LA CALLE. DICE QUE ES BUSCADO, AL CONSULTAR SI TIENE PEDIDO DE CAPTURA REFIERE NO SABER.     </div>`)[0];
+                popup_6c6628fc7e4ca42c27d3944ec24ce44f.setContent(html_f6a9c51113700da5f9680f00f042cbed);
+            
+        
+
+        circle_marker_d1092f1966433c9590d77c713fff64a9.bindPopup(popup_6c6628fc7e4ca42c27d3944ec24ce44f)
+        ;
+
+        
+    
+    
+            circle_marker_d1092f1966433c9590d77c713fff64a9.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a54f14cc55e1979cfe13bdacd4fdf3d9 = L.circleMarker(
+                [-38.0584569984, -57.5570059992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_d5e47b7557e34caf17ab349da83306e9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5282809fe79f5c2e66b52be6b7dbe376 = $(`<div id="html_5282809fe79f5c2e66b52be6b7dbe376" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 20:25<br>     <b>Relato:</b> REFIERE QUE INTENTARON ROBARLES__NO HAY HERIDOS __ERAN 2 MASCULINOS EN MOTO, NO SABE SI ARMADOS __SE FUERON PARA ABAJO POR PUAN __ERAN 2 CON GORRA, UNO MUSCULOSA VERDE Y OTRO CAMPERA NEGRA      </div>`)[0];
+                popup_d5e47b7557e34caf17ab349da83306e9.setContent(html_5282809fe79f5c2e66b52be6b7dbe376);
+            
+        
+
+        circle_marker_a54f14cc55e1979cfe13bdacd4fdf3d9.bindPopup(popup_d5e47b7557e34caf17ab349da83306e9)
+        ;
+
+        
+    
+    
+            circle_marker_a54f14cc55e1979cfe13bdacd4fdf3d9.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_80a67363629f09f6476b0a4f7a0c360a = L.circleMarker(
+                [-37.998223433453, -57.613379569069],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_cc3267ed9734ff57865d79afced79ed9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e7c7da8cc3809d86e54c9c1c6a00de5 = $(`<div id="html_1e7c7da8cc3809d86e54c9c1c6a00de5" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 19:51<br>     <b>Relato:</b> EN PROCESO__LLAMANTE REFIERE QUE ESTÁN EN LOS TECHOS DE LA ESCUELA, 3/4 PERSONAS, UNO DE VISERA Y OTRO DE MANGA CORTA. NO TIENE MÁS DATOS.     </div>`)[0];
+                popup_cc3267ed9734ff57865d79afced79ed9.setContent(html_1e7c7da8cc3809d86e54c9c1c6a00de5);
+            
+        
+
+        circle_marker_80a67363629f09f6476b0a4f7a0c360a.bindPopup(popup_cc3267ed9734ff57865d79afced79ed9)
+        ;
+
+        
+    
+    
+            circle_marker_80a67363629f09f6476b0a4f7a0c360a.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_284738cb6ac29ef908d6ca9f84e93354 = L.circleMarker(
+                [-38.007669827427, -57.547917532381],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_7b583eed1a3fe656304ccadccddc9ee2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7944ac1023af4708e6b6a12feb1e1e1b = $(`<div id="html_7944ac1023af4708e6b6a12feb1e1e1b" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 19:51<br>     <b>Relato:</b> CRIA 2DA SGTA RODRIGUEZ VALERIA __MOTOVEHICULO GILERA SMASH 110 __COLOR GRIS MATE __DOMINIO A248IJZ__2025__DEL VALLE CESTI TOBIAS__DNI 46206092__2233473221__ENTRE RIOS 2468 __HURTO      </div>`)[0];
+                popup_7b583eed1a3fe656304ccadccddc9ee2.setContent(html_7944ac1023af4708e6b6a12feb1e1e1b);
+            
+        
+
+        circle_marker_284738cb6ac29ef908d6ca9f84e93354.bindPopup(popup_7b583eed1a3fe656304ccadccddc9ee2)
+        ;
+
+        
+    
+    
+            circle_marker_284738cb6ac29ef908d6ca9f84e93354.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3b70d9ba9646e84bfb4a67d8ea5d427 = L.circleMarker(
+                [-38.07260544565, -57.573076399063],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_a679cd609e50ed4c2445e902e0a239f2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a439ed00f17f78d1315cefe21dee018 = $(`<div id="html_7a439ed00f17f78d1315cefe21dee018" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 19:35<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE QUISIERON ARREBATAR LA CARTERA A LA HIJA QUE IBA CAMINANDO. LA ARRASTRARON POR EL PISO PERO EL SR SALIO Y LOS MASCULINOS SE FUERON. NO HAY HERIDOS. AHORA VAN BAJANDO POR SOLER PARA EDISON . SON 2 MASCULINOS. UNO REMERA DE BOCA, OTRO UN JOVEN. VAN CAMINANDO.      </div>`)[0];
+                popup_a679cd609e50ed4c2445e902e0a239f2.setContent(html_7a439ed00f17f78d1315cefe21dee018);
+            
+        
+
+        circle_marker_b3b70d9ba9646e84bfb4a67d8ea5d427.bindPopup(popup_a679cd609e50ed4c2445e902e0a239f2)
+        ;
+
+        
+    
+    
+            circle_marker_b3b70d9ba9646e84bfb4a67d8ea5d427.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37479b26755d3744f94ceda486b967a9 = L.circleMarker(
+                [-37.991994945412, -57.565023712382],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_b7adf16ee8bd1c4dc31048567e5c8604 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10909074914f53b8825aecc48c44f246 = $(`<div id="html_10909074914f53b8825aecc48c44f246" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 18:55<br>     <b>Relato:</b> LA LLAMANTE REFIERE QUE  UNA PERSONA INTENTO ROBAR PERTENENCIAS DE UN AUTO. ESTABA CON EL TORSO DESNUDO EN BICICLETA. NO VIO ARMAS FUGA POR BELGRANO HACIA SAN JUAN. ESTA CON OTRO MASCULINO CON GORRITA ROJA . EL AUTO ES PATENTE NQO 098.      </div>`)[0];
+                popup_b7adf16ee8bd1c4dc31048567e5c8604.setContent(html_10909074914f53b8825aecc48c44f246);
+            
+        
+
+        circle_marker_37479b26755d3744f94ceda486b967a9.bindPopup(popup_b7adf16ee8bd1c4dc31048567e5c8604)
+        ;
+
+        
+    
+    
+            circle_marker_37479b26755d3744f94ceda486b967a9.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2944ad0de1d089eefc2f645b1767a529 = L.circleMarker(
+                [-38.06024714426, -57.571690748382],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_39110f5c310f3917dc3ad40deb338300 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9def857308e882d651d279e8fd2a782e = $(`<div id="html_9def857308e882d651d279e8fd2a782e" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 18:32<br>     <b>Relato:</b> REFIERE SER PERSONAL DE SEGURIDAS, INFORMA QUE ACABAN DE ROBAR UNA MOTO__NO HAY HERIDOS __ES UNA 110 COLOR NEGRA, PATENTE NO BRINDA __SON COMO 4 MASCULINOS,  NO  SABE SI ARMADOS, QUE ESTAN AHI, ESTAN DANDO VUELTAS      </div>`)[0];
+                popup_39110f5c310f3917dc3ad40deb338300.setContent(html_9def857308e882d651d279e8fd2a782e);
+            
+        
+
+        circle_marker_2944ad0de1d089eefc2f645b1767a529.bindPopup(popup_39110f5c310f3917dc3ad40deb338300)
+        ;
+
+        
+    
+    
+            circle_marker_2944ad0de1d089eefc2f645b1767a529.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_457521feea5ee5ff94c614e5c461c715 = L.circleMarker(
+                [-37.9887689984, -57.5452999992],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_8b4029462b8d3ddb18bb25d772915a27 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fd1afe299a00f5b83c56039461e860a = $(`<div id="html_2fd1afe299a00f5b83c56039461e860a" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 18:20<br>     <b>Relato:</b> REFIERE QUE LE ROBARON LA MOTO ZANELLA 110 COLOR BORDO, PATENTE NO TIENE__NO HAY HERIDOS__ESTABA ESTACIONADA, NO VIO NADA  ______     </div>`)[0];
+                popup_8b4029462b8d3ddb18bb25d772915a27.setContent(html_2fd1afe299a00f5b83c56039461e860a);
+            
+        
+
+        circle_marker_457521feea5ee5ff94c614e5c461c715.bindPopup(popup_8b4029462b8d3ddb18bb25d772915a27)
+        ;
+
+        
+    
+    
+            circle_marker_457521feea5ee5ff94c614e5c461c715.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9bddade13544d5ed4151ce977b66d8e2 = L.circleMarker(
+                [-37.993309362129, -57.5634508184],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_21def3d2f484edc7715be3b6ff0714bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be00f06234f90f68b93fc8541d165b21 = $(`<div id="html_be00f06234f90f68b93fc8541d165b21" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 18:12<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON EL AUTO A UNA PERSONA.- NO TIENE INFORMACION, NO SABE CUANTOS SON LOS DELINCUENTES.- SE FUERON HACIA LA PLAYA. -ES UN C3 COLOR BORDO NO APORTA LA PATENTE .- EL HOMBRE ESTA HERIDO      </div>`)[0];
+                popup_21def3d2f484edc7715be3b6ff0714bc.setContent(html_be00f06234f90f68b93fc8541d165b21);
+            
+        
+
+        circle_marker_9bddade13544d5ed4151ce977b66d8e2.bindPopup(popup_21def3d2f484edc7715be3b6ff0714bc)
+        ;
+
+        
+    
+    
+            circle_marker_9bddade13544d5ed4151ce977b66d8e2.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfaa6ad0dca7410693260a47c5f38d35 = L.circleMarker(
+                [-38.0589849985, -57.5961839992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_7e96456eea2f8b9bb2384fec2cb5a7e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ac9ff6ba19725d2d747a990b4b0b65d3 = $(`<div id="html_ac9ff6ba19725d2d747a990b4b0b65d3" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 17:24<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE UN CLIENTE LE ROBA EL ESPEJO DEL AUTO ESTACIONADO FUERA DE LA CASA MIENTRAS TRABAJABA EN EL INTERIOR. NO ARMADO.       </div>`)[0];
+                popup_7e96456eea2f8b9bb2384fec2cb5a7e0.setContent(html_ac9ff6ba19725d2d747a990b4b0b65d3);
+            
+        
+
+        circle_marker_dfaa6ad0dca7410693260a47c5f38d35.bindPopup(popup_7e96456eea2f8b9bb2384fec2cb5a7e0)
+        ;
+
+        
+    
+    
+            circle_marker_dfaa6ad0dca7410693260a47c5f38d35.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cd55a0c686c6c4a4a6becd6fa930c66f = L.circleMarker(
+                [-38.0596, -57.597],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_d43fd4b6739d3ccbe096bfba03a04504 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf28e2d8928b3a1a0c0cf29b66d9323e = $(`<div id="html_cf28e2d8928b3a1a0c0cf29b66d9323e" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 17:03<br>     <b>Relato:</b> REFIERE ARREGLAR LAVARROPAS, DICE QUE HIZO UN ARREGLO Y AL SALIR OBERVA  QUE LE FALTA UN ESPEJO LATERAL DEL LADO DERECHO DEL VEHICULO__QUE EN EL DOMICILIO HAY UN VEHICULO IGUAL AL SUYO, AL QUE TAMBIEN LE FALTA EL ESPEJO DEL MISMO LADO __QUE GOLPEA LAS MANOS EN LA CASA Y NO LO ATIENDE NADIE      </div>`)[0];
+                popup_d43fd4b6739d3ccbe096bfba03a04504.setContent(html_cf28e2d8928b3a1a0c0cf29b66d9323e);
+            
+        
+
+        circle_marker_cd55a0c686c6c4a4a6becd6fa930c66f.bindPopup(popup_d43fd4b6739d3ccbe096bfba03a04504)
+        ;
+
+        
+    
+    
+            circle_marker_cd55a0c686c6c4a4a6becd6fa930c66f.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2de07c2edf1c8c3c124ec1aa8368d0c4 = L.circleMarker(
+                [-38.0009, -57.5641],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_462febe7b3725c5ff84fb71133987219 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca243518749d3a46f87b31ad418a3a45 = $(`<div id="html_ca243518749d3a46f87b31ad418a3a45" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 16:43<br>     <b>Relato:</b> CCA QUE 2 MENORES LE ACABAN DE ROBAR LA BICICICLETA , ES DE COLOR  AMARILLA Y NEGRA  MASC MENOR TENIA PUESTO  CAMISETA DE RACING . SALIERON POR CALLE 14 DE JULIO PARA JUAN B JUSTO     </div>`)[0];
+                popup_462febe7b3725c5ff84fb71133987219.setContent(html_ca243518749d3a46f87b31ad418a3a45);
+            
+        
+
+        circle_marker_2de07c2edf1c8c3c124ec1aa8368d0c4.bindPopup(popup_462febe7b3725c5ff84fb71133987219)
+        ;
+
+        
+    
+    
+            circle_marker_2de07c2edf1c8c3c124ec1aa8368d0c4.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d606c9ad32dd14a030363ee1fe187dc2 = L.circleMarker(
+                [-38.0416, -57.568],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_f44b7cdde020c8dd97b7aac2faca92c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1eddf3f2a04663d1bc236b2c22bd9489 = $(`<div id="html_1eddf3f2a04663d1bc236b2c22bd9489" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 16:31<br>     <b>Relato:</b> REFIERE QUE LE ROBARON EN LA SOCIEDAD DE FOMENTO, NO HYA HERIDOS __NO VIO NADA__LE ROBARON PERTENENCIAS VARIAS, QJUE ESTA AFUERA PARA QUE NO LE ROBEN EL AUTO     </div>`)[0];
+                popup_f44b7cdde020c8dd97b7aac2faca92c3.setContent(html_1eddf3f2a04663d1bc236b2c22bd9489);
+            
+        
+
+        circle_marker_d606c9ad32dd14a030363ee1fe187dc2.bindPopup(popup_f44b7cdde020c8dd97b7aac2faca92c3)
+        ;
+
+        
+    
+    
+            circle_marker_d606c9ad32dd14a030363ee1fe187dc2.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_364c4c103193058cc7affe0d129d641f = L.circleMarker(
+                [-38.032387398599, -57.589817734519],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_6f7872786d62393f51c40dcdd0bd494f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ecf11977dabec28f10a82c8c9f1f6ea = $(`<div id="html_3ecf11977dabec28f10a82c8c9f1f6ea" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 16:31<br>     <b>Relato:</b> LLAMANTE REFIERE QUE INTENTARON ROBARLE LA MOTO, ERA UN NN CON CUELLITO AZUL, NO VIO ARMAS, LA MOTO ESTABA EN LA CALLE.     </div>`)[0];
+                popup_6f7872786d62393f51c40dcdd0bd494f.setContent(html_3ecf11977dabec28f10a82c8c9f1f6ea);
+            
+        
+
+        circle_marker_364c4c103193058cc7affe0d129d641f.bindPopup(popup_6f7872786d62393f51c40dcdd0bd494f)
+        ;
+
+        
+    
+    
+            circle_marker_364c4c103193058cc7affe0d129d641f.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3325290a72c408c12a2bc91f26cf0250 = L.circleMarker(
+                [-37.969308393, -57.5905337592],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_d9385c3c828b8fd5eca57fc33a1dbef2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b7593c3e66a06a54deb53c4a3bb8dc73 = $(`<div id="html_b7593c3e66a06a54deb53c4a3bb8dc73" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 16:24<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE LE ROBAN EL TELEFONO Y LO ESTA SIGUIENDO PARA IR A RECUPERARLO. ETSA A DIEZ CUADRAS DEL LUGAR.  NO HAY HERIDOS. AGRESOR UN MASCULINO, NO SABE COMO VISTE. NO ARMADO      </div>`)[0];
+                popup_d9385c3c828b8fd5eca57fc33a1dbef2.setContent(html_b7593c3e66a06a54deb53c4a3bb8dc73);
+            
+        
+
+        circle_marker_3325290a72c408c12a2bc91f26cf0250.bindPopup(popup_d9385c3c828b8fd5eca57fc33a1dbef2)
+        ;
+
+        
+    
+    
+            circle_marker_3325290a72c408c12a2bc91f26cf0250.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f03ba4a8691b3382513b620558f3278d = L.circleMarker(
+                [-37.970030954646, -57.594710919221],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_e6d01b2e137a015e5ac26c0c4478b61a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1bce61c9e9e9e2d4ad2bbbcc81793a6b = $(`<div id="html_1bce61c9e9e9e2d4ad2bbbcc81793a6b" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 16:23<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE LE ACABAN DE ROBAR A UNA CHICA LA CARTERA, ERA UN MASCULINO EN MOTO. TENIA UNA REMERA VERDE. NO ESTA ARMADO. NO HAY HERIDOS. SE FUE PARA EL LADO DE LURO.      </div>`)[0];
+                popup_e6d01b2e137a015e5ac26c0c4478b61a.setContent(html_1bce61c9e9e9e2d4ad2bbbcc81793a6b);
+            
+        
+
+        circle_marker_f03ba4a8691b3382513b620558f3278d.bindPopup(popup_e6d01b2e137a015e5ac26c0c4478b61a)
+        ;
+
+        
+    
+    
+            circle_marker_f03ba4a8691b3382513b620558f3278d.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f1947cc7c897e775472c0146107ea41 = L.circleMarker(
+                [-37.9725529985, -57.5663639992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_69fc38be38bb07de5795645640339bce = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_784e3f52d1a9bf31119b426b9409f267 = $(`<div id="html_784e3f52d1a9bf31119b426b9409f267" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 16:07<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE LE ROBAN EN LA CALLE UN MASCULINO EN MOTO. LE SACA  LA MOCHILA Y EL CELULAR. NO HERIDO. NO ARMADO. MASCULINO CIRCULA EN SCOOTER MARRON PERSONA OBESA VESTIDO CON SHORT. FUGA POR MEXICO HACIA TEJEDOR      </div>`)[0];
+                popup_69fc38be38bb07de5795645640339bce.setContent(html_784e3f52d1a9bf31119b426b9409f267);
+            
+        
+
+        circle_marker_0f1947cc7c897e775472c0146107ea41.bindPopup(popup_69fc38be38bb07de5795645640339bce)
+        ;
+
+        
+    
+    
+            circle_marker_0f1947cc7c897e775472c0146107ea41.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4803c114584bd8e22e916af5ea5eb0b8 = L.circleMarker(
+                [-38.0721, -57.5529],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_fec1ac774796149925af06553900fa68 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4cc8228776d407ff51545ad581cb07e6 = $(`<div id="html_4cc8228776d407ff51545ad581cb07e6" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 15:54<br>     <b>Relato:</b> EN PROCESO __ESTAN ROBANDO 4 MASCULINOS EN 2 MOTOS UNA ROJA Y UNA NEGRA, ESTARIAN ARMADOS __SE FUERON  PARA LA COSTA POR DARRAGUEIRRA , LE ROBARON A UNA PERSONAS AHI  PERO ESTA BIEN LA PERSONA      </div>`)[0];
+                popup_fec1ac774796149925af06553900fa68.setContent(html_4cc8228776d407ff51545ad581cb07e6);
+            
+        
+
+        circle_marker_4803c114584bd8e22e916af5ea5eb0b8.bindPopup(popup_fec1ac774796149925af06553900fa68)
+        ;
+
+        
+    
+    
+            circle_marker_4803c114584bd8e22e916af5ea5eb0b8.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9187d59eafc5828b1db701f8757bc8c6 = L.circleMarker(
+                [-37.9881, -57.5808],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_a44486927d6daac3d7def1e44a9fcc84 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e34ab45424ead0ed97893dcd9030558f = $(`<div id="html_e34ab45424ead0ed97893dcd9030558f" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 15:21<br>     <b>Relato:</b> LLAMANTE DENUNCIA ROBO DE SU AUTO KRAISLER NEON MODELO 98, COLOR CELESTE, PATENTE NO SE ACUERDA. NO HAY HERIDOS. FUERON DOS PERSONAS QUE SE FUERON POR COLON CON SENTIDO A LA COSTA.- [Id.Remoto: 10015492613] [Id.Remoto: 10015492613] [Id.Remoto: 46770091]     </div>`)[0];
+                popup_a44486927d6daac3d7def1e44a9fcc84.setContent(html_e34ab45424ead0ed97893dcd9030558f);
+            
+        
+
+        circle_marker_9187d59eafc5828b1db701f8757bc8c6.bindPopup(popup_a44486927d6daac3d7def1e44a9fcc84)
+        ;
+
+        
+    
+    
+            circle_marker_9187d59eafc5828b1db701f8757bc8c6.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b9d39e124645470685ec5fd7da739d9 = L.circleMarker(
+                [-37.9881, -57.5808],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_11a7ec3ff71ccc69d932c5848c1747f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cbe244bc5486b2ef8e5b90e51ef424cb = $(`<div id="html_cbe244bc5486b2ef8e5b90e51ef424cb" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 15:20<br>     <b>Relato:</b> LLAMANTE DENUNCIA ROBO DE SU AUTO KRAISLER NEON MODELO 98, COLOR CELESTE, PATENTE NO SE ACUERDA. NO HAY HERIDOS. FUERON DOS PERSONAS QUE SE FUERON POR COLON CON SENTIDO A LA COSTA.-     </div>`)[0];
+                popup_11a7ec3ff71ccc69d932c5848c1747f8.setContent(html_cbe244bc5486b2ef8e5b90e51ef424cb);
+            
+        
+
+        circle_marker_3b9d39e124645470685ec5fd7da739d9.bindPopup(popup_11a7ec3ff71ccc69d932c5848c1747f8)
+        ;
+
+        
+    
+    
+            circle_marker_3b9d39e124645470685ec5fd7da739d9.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_864b33ea5d77a2e29e8345ce84f82352 = L.circleMarker(
+                [-37.987420684244, -57.575566776976],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_440a2c37fcb10c48fe61e31ed3de1338 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa8f0eeba39e6eabc5a136358ee37c59 = $(`<div id="html_fa8f0eeba39e6eabc5a136358ee37c59" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 13:37<br>     <b>Relato:</b> CRIA 4TA SGTO PAEZ__YAMAHA 110 CRIPTON COLOR GRIS __A171DVY (HURTO) 2022__URUGUAY 1922__JORGE COLOMBO DNI 5331400__FN:19/11/1944__154468019____     </div>`)[0];
+                popup_440a2c37fcb10c48fe61e31ed3de1338.setContent(html_fa8f0eeba39e6eabc5a136358ee37c59);
+            
+        
+
+        circle_marker_864b33ea5d77a2e29e8345ce84f82352.bindPopup(popup_440a2c37fcb10c48fe61e31ed3de1338)
+        ;
+
+        
+    
+    
+            circle_marker_864b33ea5d77a2e29e8345ce84f82352.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_073d7d2c61fef31331d2179b03f5105d = L.circleMarker(
+                [-38.047382094947, -57.568101785477],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_86fe2fea4549042652ea45b90855aeb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ea8b798cbefc5fb5097bb65ecb06e66 = $(`<div id="html_7ea8b798cbefc5fb5097bb65ecb06e66" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 13:32<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE LE ACABAN DE ROBAR, ERA UN MASCULINO CON UN ARMA CHICA. NO HAY HERIDOS AL MOMENTO. TENIA UNA REMERA OSCURA. ENTRO A ROBAR EN LA PANADERIA. CRUZO EL MOSTRADOR. NO SABE PARA QUE LADO SE FUE.      </div>`)[0];
+                popup_86fe2fea4549042652ea45b90855aeb6.setContent(html_7ea8b798cbefc5fb5097bb65ecb06e66);
+            
+        
+
+        circle_marker_073d7d2c61fef31331d2179b03f5105d.bindPopup(popup_86fe2fea4549042652ea45b90855aeb6)
+        ;
+
+        
+    
+    
+            circle_marker_073d7d2c61fef31331d2179b03f5105d.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7137aac89a3007d36891499627cb8942 = L.circleMarker(
+                [-38.0200599984, -57.5663489992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_4b83fe01ce7f2d72eafa363ff094dd8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec6651fb1ef6f0bf0d58b88e7cf99873 = $(`<div id="html_ec6651fb1ef6f0bf0d58b88e7cf99873" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 13:20<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE  UN CUIDA COCHES QUE LLEVA REMERE GRIS Y  UN GRORRO AZUL Y CELESTE , ESTA AL LADO DE UN AUTO QUE TIENE EL VIDRIO ABIERTO, ES UN FORGON DE COLOR GRIS OSCURO , HABRIA METIDO LA MANO      </div>`)[0];
+                popup_4b83fe01ce7f2d72eafa363ff094dd8d.setContent(html_ec6651fb1ef6f0bf0d58b88e7cf99873);
+            
+        
+
+        circle_marker_7137aac89a3007d36891499627cb8942.bindPopup(popup_4b83fe01ce7f2d72eafa363ff094dd8d)
+        ;
+
+        
+    
+    
+            circle_marker_7137aac89a3007d36891499627cb8942.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db923f79120fd5d210fde36ab6c7d97a = L.circleMarker(
+                [-38.045307383964, -57.570867680801],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_0326c1205152a0b0e9eae974dd81c804 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91312b10b9ecc0ff018e327736329f1c = $(`<div id="html_91312b10b9ecc0ff018e327736329f1c" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 12:52<br>     <b>Relato:</b> __LLAMANTE REFIERE QUE DOS CHICOS ENTRARON A ROBAR EN UN GERIATRICO Y SALIERON CORRIENDO POR FORTUNATO DE LA PLAZA AL 4700- 4900 PARA PERALTA RAMOS. UNO TIENE REMERA BLANCA MOCHILA Y GORRA ROJA EL OTRO REMERA NEGRA, ENTRARON AL GERIATRICIONO VIO SI ESTABAN ARMADOS. NO HAY HERIDOS. SON DOS MASCULINOS JOVENES.CREE QUE SON MENORES.      </div>`)[0];
+                popup_0326c1205152a0b0e9eae974dd81c804.setContent(html_91312b10b9ecc0ff018e327736329f1c);
+            
+        
+
+        circle_marker_db923f79120fd5d210fde36ab6c7d97a.bindPopup(popup_0326c1205152a0b0e9eae974dd81c804)
+        ;
+
+        
+    
+    
+            circle_marker_db923f79120fd5d210fde36ab6c7d97a.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c2e29548cd046240d6d06edc08f687f = L.circleMarker(
+                [-37.9634815402, -57.5576792318],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_92baac2f0486bcc0ee1f29ee8626d5e9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4400d63936cbeb88004e36130a33104e = $(`<div id="html_4400d63936cbeb88004e36130a33104e" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 12:34<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON LA HONDA WEY COLOR CELESTE, INTADA DE AZUL Y EL ASIENTO Y EL CAÑO DE ESCAPE AZUL, PATENTE NO RECUERDA PERO LA TIENE PUESTA. LOS DELINCUENTES TIENEN UNA MOTO CG COLOR ROJA, SON UN HOMBRE Y UNA MUJER      </div>`)[0];
+                popup_92baac2f0486bcc0ee1f29ee8626d5e9.setContent(html_4400d63936cbeb88004e36130a33104e);
+            
+        
+
+        circle_marker_1c2e29548cd046240d6d06edc08f687f.bindPopup(popup_92baac2f0486bcc0ee1f29ee8626d5e9)
+        ;
+
+        
+    
+    
+            circle_marker_1c2e29548cd046240d6d06edc08f687f.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aeac4b5460c664d7d89c3ff3861c6275 = L.circleMarker(
+                [-38.0485439984, -57.5665789992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_f1c028e562acbbd5bb92b838b2b766a3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb8d2603c46264ec3828302fe20b638b = $(`<div id="html_bb8d2603c46264ec3828302fe20b638b" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 12:11<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON A UN CLIENTE A UNA CUADRA DEL LUGAR, ERAN DOS EN UNA MOTO, ESTABAN CON UNA PISTOLA,  NO HAY HERIDOS. ____NO TIENE MAS DATOS      </div>`)[0];
+                popup_f1c028e562acbbd5bb92b838b2b766a3.setContent(html_bb8d2603c46264ec3828302fe20b638b);
+            
+        
+
+        circle_marker_aeac4b5460c664d7d89c3ff3861c6275.bindPopup(popup_f1c028e562acbbd5bb92b838b2b766a3)
+        ;
+
+        
+    
+    
+            circle_marker_aeac4b5460c664d7d89c3ff3861c6275.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3478f66795d182a216cc2be9dbccee1 = L.circleMarker(
+                [-38.055677837653, -57.563502828097],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_53470c6bd5df7602b063609857c7a3f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_355802899bcd896c14f288c901f72537 = $(`<div id="html_355802899bcd896c14f288c901f72537" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 12:07<br>     <b>Relato:</b> LLAMANTE REFIERE QUE HAY DOS MASCULINO EN EL POSTE DE INTERNET, ESTAN  SACANDO LOS CABLES DE SU CASA, DICE QUE TENIAN ORDEN PERO CREE QUE NO ES VERDAD, ESTARIAN ROBANDO CABLES, UNO VISTE PANTALON AZUL Y REMERA BLANCA Y DE CASCO , ESTAN EN LA ESQUINA DE GENOVA, ESTAN EN UN VEHOCULO FIAT UNO BLANCO , PATENTE NO VE .      </div>`)[0];
+                popup_53470c6bd5df7602b063609857c7a3f9.setContent(html_355802899bcd896c14f288c901f72537);
+            
+        
+
+        circle_marker_f3478f66795d182a216cc2be9dbccee1.bindPopup(popup_53470c6bd5df7602b063609857c7a3f9)
+        ;
+
+        
+    
+    
+            circle_marker_f3478f66795d182a216cc2be9dbccee1.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a0af819fa49358c89d6e516e8ab2ebf1 = L.circleMarker(
+                [-37.9921069984, -57.5566859992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_9db13626f6737c77027be239df6449f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23822e778acbe79fb086dbe9f0a63010 = $(`<div id="html_23822e778acbe79fb086dbe9f0a63010" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 11:57<br>     <b>Relato:</b> LLAMANTE INFORMA QUE HAY UNA PAREJA, FEM ROBUSTA  DE BLANCO Y MASC DE NEGRO, DROGADO Y CON CUCHILLO, QUE ESTAN ROBANDO A LA GENTE QUE PASA. NO HAY HERIDOS.     </div>`)[0];
+                popup_9db13626f6737c77027be239df6449f8.setContent(html_23822e778acbe79fb086dbe9f0a63010);
+            
+        
+
+        circle_marker_a0af819fa49358c89d6e516e8ab2ebf1.bindPopup(popup_9db13626f6737c77027be239df6449f8)
+        ;
+
+        
+    
+    
+            circle_marker_a0af819fa49358c89d6e516e8ab2ebf1.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1f1782ab800461f6babc377f5896264 = L.circleMarker(
+                [-38.0055, -57.5602],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_ca037fbc2ab35607d52395591864768b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19b2107487899a3c55f5d3fd3a0faabe = $(`<div id="html_19b2107487899a3c55f5d3fd3a0faabe" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 11:43<br>     <b>Relato:</b> PASO UN MASCULINO INDIGENTE HACIENDO DISTURNIOS EN EL CASAMIENTO GRITO COSAS, LE QUISO SACAR EL TELEFONO A UNA PERSONA DE LA BODA, SE VA POR INDEPENDENCIA EN DIRECCION A CASTELLI LADO CONTRARIO A COLON      </div>`)[0];
+                popup_ca037fbc2ab35607d52395591864768b.setContent(html_19b2107487899a3c55f5d3fd3a0faabe);
+            
+        
+
+        circle_marker_c1f1782ab800461f6babc377f5896264.bindPopup(popup_ca037fbc2ab35607d52395591864768b)
+        ;
+
+        
+    
+    
+            circle_marker_c1f1782ab800461f6babc377f5896264.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec01b80c9bf5adeddd3bdb3a3d4a1382 = L.circleMarker(
+                [-37.9714429985, -57.6134649992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_669361fbbbeb02fc84d0fa094c52276f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c39288cf9fd35843f47aa849d41dd9a = $(`<div id="html_3c39288cf9fd35843f47aa849d41dd9a" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 10:57<br>     <b>Relato:</b> LLAMANTE REFIERE QUE ROBARON PERTENENCIAS DE UNA CAMIONETA. NO SABE SI ESTABA ARMADO.- SE VA CAMINANDO 210 HACIA ALBERTI. VISTE CON PANTALON AZUL Y UNA REMERA BLANCA EN LA MANO.-      </div>`)[0];
+                popup_669361fbbbeb02fc84d0fa094c52276f.setContent(html_3c39288cf9fd35843f47aa849d41dd9a);
+            
+        
+
+        circle_marker_ec01b80c9bf5adeddd3bdb3a3d4a1382.bindPopup(popup_669361fbbbeb02fc84d0fa094c52276f)
+        ;
+
+        
+    
+    
+            circle_marker_ec01b80c9bf5adeddd3bdb3a3d4a1382.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_062b0126993a43d04c72741105b7df29 = L.circleMarker(
+                [-37.9977649984, -57.5455259992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_27cc56a2d38e9cc145564fbdae7f38a9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0365820400282be7d0c0c384c9e5420c = $(`<div id="html_0365820400282be7d0c0c384c9e5420c" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 10:41<br>     <b>Relato:</b> LLAMANTE REFIERE QUE 2 PERSONAS QUISIERON ABRIR UN AUTO , UNO VISTE DE PANTALON COROT AZUL REMERA DE BOCA Y GORRITA BLANCA , SE FUERON POR CORODBA PARA EL LADO DEL COLEGIO  SANTA CECILIA      </div>`)[0];
+                popup_27cc56a2d38e9cc145564fbdae7f38a9.setContent(html_0365820400282be7d0c0c384c9e5420c);
+            
+        
+
+        circle_marker_062b0126993a43d04c72741105b7df29.bindPopup(popup_27cc56a2d38e9cc145564fbdae7f38a9)
+        ;
+
+        
+    
+    
+            circle_marker_062b0126993a43d04c72741105b7df29.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_620778d32be7531e541d11c52d356464 = L.circleMarker(
+                [-38.021212597898, -57.606323516372],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_601eb38474fbadc7c3045e33c2ee4e8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0cc4b7ad4300cbfaecac50c0fded4373 = $(`<div id="html_0cc4b7ad4300cbfaecac50c0fded4373" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 10:25<br>     <b>Relato:</b> REFIERE QUE LE ROMPIERON EL AUTO Y SE LLEVARON PERTENENCIAS DEL AUTO CORTA EL LLAMADO ESTA MUY ENOJADO      </div>`)[0];
+                popup_601eb38474fbadc7c3045e33c2ee4e8a.setContent(html_0cc4b7ad4300cbfaecac50c0fded4373);
+            
+        
+
+        circle_marker_620778d32be7531e541d11c52d356464.bindPopup(popup_601eb38474fbadc7c3045e33c2ee4e8a)
+        ;
+
+        
+    
+    
+            circle_marker_620778d32be7531e541d11c52d356464.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e54dffa6b75c4c219e373a876a4da3a0 = L.circleMarker(
+                [-37.978164009418, -57.586653340008],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_55b9f3f4587fc4f7f8812d4a6596e0f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc2a0edc1cf2071bfa5d85b096b0efc8 = $(`<div id="html_bc2a0edc1cf2071bfa5d85b096b0efc8" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 10:18<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON EN UN KIOSCO.  ERAN DOS NN EN MOTO. UNO SE BAJO CON UN ARMA Y EL OTRO SE QUEDO EN EL VEHICULO.-  MOTO HONDA WAVE ROJA, EL CONDUCTOR CON CASCO BLANCO. SE FUERON POR LURO HACIA 180      </div>`)[0];
+                popup_55b9f3f4587fc4f7f8812d4a6596e0f5.setContent(html_bc2a0edc1cf2071bfa5d85b096b0efc8);
+            
+        
+
+        circle_marker_e54dffa6b75c4c219e373a876a4da3a0.bindPopup(popup_55b9f3f4587fc4f7f8812d4a6596e0f5)
+        ;
+
+        
+    
+    
+            circle_marker_e54dffa6b75c4c219e373a876a4da3a0.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb7298f9fe25d08a683fdf6ff98476df = L.circleMarker(
+                [-38.0180489985, -57.5931469992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_58a497a3a9ce8d9fca15245b089dd11b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8fbd858f6777fd39856277595cd509d1 = $(`<div id="html_8fbd858f6777fd39856277595cd509d1" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 09:06<br>     <b>Relato:</b> LLAMANTE REFIERE QUE HAY UN HOMBRE QUE TIENE REMERA CLARA, BERMUDA Y VICERA BLANCA  ESTA ESCONDIDO Y LE ROBA A TODOS LOS QUE PASAN POR ALLI, VE QUE SALE DE LA VILLA, TIENE UN ARMA DE FUEGO __ESTA A PIE SOBRE VERTIZ      </div>`)[0];
+                popup_58a497a3a9ce8d9fca15245b089dd11b.setContent(html_8fbd858f6777fd39856277595cd509d1);
+            
+        
+
+        circle_marker_fb7298f9fe25d08a683fdf6ff98476df.bindPopup(popup_58a497a3a9ce8d9fca15245b089dd11b)
+        ;
+
+        
+    
+    
+            circle_marker_fb7298f9fe25d08a683fdf6ff98476df.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8010c0940e2dc299c04a61a824536526 = L.circleMarker(
+                [-38.006714751036, -57.605114843668],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_00bda092779dfb731a954c79d939f728 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca3536431bbdd3d923d8b10512f54b58 = $(`<div id="html_ca3536431bbdd3d923d8b10512f54b58" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 08:46<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON EL AUTO DE LA PUERTA DE SU CASA, ES UN RENAUT CLIO 2, PATENTE GWX 093, COLOR AZUL, FUE EN ESTE MOMENTO , NO SABE MAS      </div>`)[0];
+                popup_00bda092779dfb731a954c79d939f728.setContent(html_ca3536431bbdd3d923d8b10512f54b58);
+            
+        
+
+        circle_marker_8010c0940e2dc299c04a61a824536526.bindPopup(popup_00bda092779dfb731a954c79d939f728)
+        ;
+
+        
+    
+    
+            circle_marker_8010c0940e2dc299c04a61a824536526.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c786579bf05d5930258cb354974526c = L.circleMarker(
+                [-37.9992509985, -57.6179979992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_f96630ecf959242817d68f71ecb038a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f386b55551cf8d564bae8f528e20ea64 = $(`<div id="html_f386b55551cf8d564bae8f528e20ea64" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 08:42<br>     <b>Relato:</b> LLTE MASC  REFIERE QUE 2 NN , FEM Y MASC,  EN MOTO LE ROBARON A UNA CHICA EN VIA PUBLICA, LA VICTIMA LLEVA  CON UN PAR DE PERROS __DA DESCROPCION DE REMERAA ROJA Y CAMPERA GRIS CELESTE__SE ENTRECORTA LLAMADO Y NO SE OBTIENE MAS DATOS      </div>`)[0];
+                popup_f96630ecf959242817d68f71ecb038a1.setContent(html_f386b55551cf8d564bae8f528e20ea64);
+            
+        
+
+        circle_marker_9c786579bf05d5930258cb354974526c.bindPopup(popup_f96630ecf959242817d68f71ecb038a1)
+        ;
+
+        
+    
+    
+            circle_marker_9c786579bf05d5930258cb354974526c.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4789455e580d20fab345f42b7acc1291 = L.circleMarker(
+                [-38.010604942554, -57.562593544104],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_e9a6218af4d483a0c19bd3ee259a1967 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cac20fa7512a7491656b30afcceb5bbd = $(`<div id="html_cac20fa7512a7491656b30afcceb5bbd" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 08:30<br>     <b>Relato:</b> BAJAJ  ROUSER COLOR AZUL AÑO 2016 DOMINIO A005DUD__FERNANDEZ MARTIN RODRIGO DNI 32589123 CEL 2932530530__HURTO __INFORMA SGTO RODRIGUEZ BALERIOA COMISARIA 2DA     </div>`)[0];
+                popup_e9a6218af4d483a0c19bd3ee259a1967.setContent(html_cac20fa7512a7491656b30afcceb5bbd);
+            
+        
+
+        circle_marker_4789455e580d20fab345f42b7acc1291.bindPopup(popup_e9a6218af4d483a0c19bd3ee259a1967)
+        ;
+
+        
+    
+    
+            circle_marker_4789455e580d20fab345f42b7acc1291.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1517982867b56a37c972b161d3b0577e = L.circleMarker(
+                [-38.035088827815, -57.553366386653],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_e52e74ec76be10f547d1df1b827fb278 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_638c591da2542c012340f77bfeef29d3 = $(`<div id="html_638c591da2542c012340f77bfeef29d3" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO AUTOMOTOR<br>     <b>Fecha y Hora:</b> 04-12-2025 07:20<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON EL AUTO, LO HABIA DEJADO FUERA DE SU CASA AL DESPERTAR NOTA FALTANTE __ES UN CORSA 2002 VERDE AZULADO, PTTE DZJ056      </div>`)[0];
+                popup_e52e74ec76be10f547d1df1b827fb278.setContent(html_638c591da2542c012340f77bfeef29d3);
+            
+        
+
+        circle_marker_1517982867b56a37c972b161d3b0577e.bindPopup(popup_e52e74ec76be10f547d1df1b827fb278)
+        ;
+
+        
+    
+    
+            circle_marker_1517982867b56a37c972b161d3b0577e.bindTooltip(
+                `<div>
+                     Tipo: ROBO AUTOMOTOR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2622bdd15563a7d336194c9ae442d28c = L.circleMarker(
+                [-38.002267303007, -57.543546602679],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_aca56d4f7c9fb5ce9f4a7fa16eaf707d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8dd6e3f7087bf5e3eb4e8ef0d0ef8158 = $(`<div id="html_8dd6e3f7087bf5e3eb4e8ef0d0ef8158" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 06:38<br>     <b>Relato:</b> REFIERE QUE ESTAN ROBANDO UN GOL BLANCO, LO ABRIERON ,  SON DOS MASCULINOS , UNO REMERA AZUL , NO VCE SI ESTAN ARMADOS.-   ROMPIERON  LA CERRADURA DLE BAUL, ABRIERON LA PUERTA      </div>`)[0];
+                popup_aca56d4f7c9fb5ce9f4a7fa16eaf707d.setContent(html_8dd6e3f7087bf5e3eb4e8ef0d0ef8158);
+            
+        
+
+        circle_marker_2622bdd15563a7d336194c9ae442d28c.bindPopup(popup_aca56d4f7c9fb5ce9f4a7fa16eaf707d)
+        ;
+
+        
+    
+    
+            circle_marker_2622bdd15563a7d336194c9ae442d28c.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0db281cb8bb442ee2732378335acdf1e = L.circleMarker(
+                [-38.0442039984, -57.5447249992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_c416716af357293c0ce3174a910b679b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bc0f896c07b896769fba4fca000a407 = $(`<div id="html_9bc0f896c07b896769fba4fca000a407" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 06:26<br>     <b>Relato:</b> LLAMANTE REFIERE QUE HAY 2 HOMBRES Y UNA CHICA DROGADOS , PASAN AL LADO DE LOS AUTOS PARA  ABRIRLOS, TIENEN ROPAS GRISES Y NEGRAS , UNO TIENE LA MANO ENYESADA  , VAN POR 12 DE OCTUBRE HACIA EL PUERTO     </div>`)[0];
+                popup_c416716af357293c0ce3174a910b679b.setContent(html_9bc0f896c07b896769fba4fca000a407);
+            
+        
+
+        circle_marker_0db281cb8bb442ee2732378335acdf1e.bindPopup(popup_c416716af357293c0ce3174a910b679b)
+        ;
+
+        
+    
+    
+            circle_marker_0db281cb8bb442ee2732378335acdf1e.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_231488c3ac9b2921b7fdd75bcae2adf0 = L.circleMarker(
+                [-38.0354929094, -57.5528453662],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_d7b2a9924ad71cf78117f4c1c8dca919 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49bc46137fe39c02137ab8cce2be72fb = $(`<div id="html_49bc46137fe39c02137ab8cce2be72fb" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> PEDIDO GENERICO DE AUXILIO<br>     <b>Fecha y Hora:</b> 04-12-2025 05:31<br>     <b>Relato:</b> CARGA INVERSA INF CRIA 3RA CHEVROLET CORSA BLANCO DOMINIO  AA057CA AÑO 2016      </div>`)[0];
+                popup_d7b2a9924ad71cf78117f4c1c8dca919.setContent(html_49bc46137fe39c02137ab8cce2be72fb);
+            
+        
+
+        circle_marker_231488c3ac9b2921b7fdd75bcae2adf0.bindPopup(popup_d7b2a9924ad71cf78117f4c1c8dca919)
+        ;
+
+        
+    
+    
+            circle_marker_231488c3ac9b2921b7fdd75bcae2adf0.bindTooltip(
+                `<div>
+                     Tipo: PEDIDO GENERICO DE AUXILIO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ef42806b4573aae79c6f6703677f1ff = L.circleMarker(
+                [-38.0762479984, -57.5503679992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_3c594e87bda73e8df365128578bb54ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ba0f27731a7da3d10c245b939e923d9 = $(`<div id="html_1ba0f27731a7da3d10c245b939e923d9" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 05:08<br>     <b>Relato:</b> EN PROCESO __LLAMANTE REFIERE QUE HAY LE ROBARON UNA VALIJA ESTABA EN LA CALLE  Y FRENO UNA SURAN COLOR GRIS PLATA CON 4 MASCULINO LLAMANTE SALIO CORRIENDO Y SE LLAEVARON LA VALIJA HICIERON 02 CUADRAS Y FRENO DONDE HABIA 02 CHICAS LUEGO SE ESCUCHARON GRITOS Y NO EDTABAN MAS LAS CHICAS, NO SABE QUE LES SUCEDIO SI LES ROBARON O LAS SUBIERON AL AUTO SE FURON  PARA EDISON 4 MASCULINOS UNO CON  VICERA CAMPERA CLARITA      </div>`)[0];
+                popup_3c594e87bda73e8df365128578bb54ef.setContent(html_1ba0f27731a7da3d10c245b939e923d9);
+            
+        
+
+        circle_marker_3ef42806b4573aae79c6f6703677f1ff.bindPopup(popup_3c594e87bda73e8df365128578bb54ef)
+        ;
+
+        
+    
+    
+            circle_marker_3ef42806b4573aae79c6f6703677f1ff.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ea12ccf246aeec10834f1f81c5ebfd9 = L.circleMarker(
+                [-37.9908489985, -57.5683139992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_f9c48bdcdcdcdc3393a457ed10fe3d35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_060f5a504c7f5fd50cd8503fc8137490 = $(`<div id="html_060f5a504c7f5fd50cd8503fc8137490" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 04:43<br>     <b>Relato:</b> EN PROCESO __LLAMANTE REF QUE DOS MASCULINSO ROMPEIORN UNA VENTANA E INGRESARON AL COMERICO. UNO DE NEGRO CON GORRA E OTRO CON CAMISETA CON RAYAS ROJAS Y NEGRAS      </div>`)[0];
+                popup_f9c48bdcdcdcdc3393a457ed10fe3d35.setContent(html_060f5a504c7f5fd50cd8503fc8137490);
+            
+        
+
+        circle_marker_3ea12ccf246aeec10834f1f81c5ebfd9.bindPopup(popup_f9c48bdcdcdcdc3393a457ed10fe3d35)
+        ;
+
+        
+    
+    
+            circle_marker_3ea12ccf246aeec10834f1f81c5ebfd9.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6cafa090a9044d3ff0c1e101a103578 = L.circleMarker(
+                [-38.0234, -57.6114],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_86052c61043554d26eb5b97d4eca916d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_375e7ad2cc31ce19f02854d89604de80 = $(`<div id="html_375e7ad2cc31ce19f02854d89604de80" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 03:54<br>     <b>Relato:</b> LLAMANYTE REF QUE UN MASCULINO CON REMERA DE ARGENTINA Y PPMATALON AZUL, LE INTENTO ROBAR EL CELULAR Y PERTENENCIAS, SE FUE POR INDA EN DIRECCION A CALLE 39     </div>`)[0];
+                popup_86052c61043554d26eb5b97d4eca916d.setContent(html_375e7ad2cc31ce19f02854d89604de80);
+            
+        
+
+        circle_marker_a6cafa090a9044d3ff0c1e101a103578.bindPopup(popup_86052c61043554d26eb5b97d4eca916d)
+        ;
+
+        
+    
+    
+            circle_marker_a6cafa090a9044d3ff0c1e101a103578.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23cd99717b450c32e212cd7c9ed5ec32 = L.circleMarker(
+                [-38.005335465501, -57.54646534632],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_22ac82a72e5f6611c22c24fae27b978a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fba21a951bd287845991b399cbfa45e2 = $(`<div id="html_fba21a951bd287845991b399cbfa45e2" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 03:16<br>     <b>Relato:</b> EN PROCESO__LLAMANTE REFIERE QUE HAY UN  MASCULINO DE GORRITA REMAR BLANCA ESTA ROMPIENDO LA VENTANA  Y QUIERE ABRIR LA PUERTA DEL LOCAL     </div>`)[0];
+                popup_22ac82a72e5f6611c22c24fae27b978a.setContent(html_fba21a951bd287845991b399cbfa45e2);
+            
+        
+
+        circle_marker_23cd99717b450c32e212cd7c9ed5ec32.bindPopup(popup_22ac82a72e5f6611c22c24fae27b978a)
+        ;
+
+        
+    
+    
+            circle_marker_23cd99717b450c32e212cd7c9ed5ec32.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cdc4bab953e07f8c43806a00977f1b9a = L.circleMarker(
+                [-38.0141619985, -57.5688639992],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_2f86d615c0f39bc157ce74101a851390 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f37867e51552cad9a62ae69dc45e4de = $(`<div id="html_3f37867e51552cad9a62ae69dc45e4de" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 03:08<br>     <b>Relato:</b>  LLAMANTE INFORMA HAY UN MASCULINO EN SHORT,  QUE QUIERE ROBAR AUTOS, AHORA VA CORRIENDO POR  ALMAFUERTE HACIA INDEPENDENCIA, NO SABE ISI  ESTA ARMADO     </div>`)[0];
+                popup_2f86d615c0f39bc157ce74101a851390.setContent(html_3f37867e51552cad9a62ae69dc45e4de);
+            
+        
+
+        circle_marker_cdc4bab953e07f8c43806a00977f1b9a.bindPopup(popup_2f86d615c0f39bc157ce74101a851390)
+        ;
+
+        
+    
+    
+            circle_marker_cdc4bab953e07f8c43806a00977f1b9a.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c208a322a9bed55842954b3c765ed2bf = L.circleMarker(
+                [-38.0022, -57.5741],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_49385029f6f5aa7bb88ccf3a0a43ad51 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0215fe8ca21911bbfbfb26fe0db7cfe4 = $(`<div id="html_0215fe8ca21911bbfbfb26fe0db7cfe4" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 03:00<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE ROBARON AL HIJO EN  ALVARADO  Y PAMPA __LE SACARON TARJETAS DNI__NO ESTA HERIDO. DOS O TRES OERSONAS EN UNA SURAN VOLKSWAGEN PLATEADA POR ALVARADO SE FUERON__ESTABAN CON DOS CUCHILLAS CON GORRA BUZO __AHORA ESTA EN DIRECCION DE CALLEJERO     </div>`)[0];
+                popup_49385029f6f5aa7bb88ccf3a0a43ad51.setContent(html_0215fe8ca21911bbfbfb26fe0db7cfe4);
+            
+        
+
+        circle_marker_c208a322a9bed55842954b3c765ed2bf.bindPopup(popup_49385029f6f5aa7bb88ccf3a0a43ad51)
+        ;
+
+        
+    
+    
+            circle_marker_c208a322a9bed55842954b3c765ed2bf.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3773756953711d9109cceeaa1e34e6a2 = L.circleMarker(
+                [-38.037270607239, -57.588087352775],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_1ed482118961d457d51f906da0b8cc8f);
+        
+    
+        var popup_46530ddf56b5508c9ebe4cbb6794b0fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_160f93904a63c71f2bcfb10b7c6d48cb = $(`<div id="html_160f93904a63c71f2bcfb10b7c6d48cb" style="width: 100.0%; height: 100.0%;">     <b>Tipo de Delito:</b> ROBO<br>     <b>Fecha y Hora:</b> 04-12-2025 01:54<br>     <b>Relato:</b> LLAMANTE REFIERE QUE LE QUIEREN ABRIR EL AUTO QUE ESTA EN LA VEREDA__SON 2 CHICOS NO VE VESTIMENTA ESTAN PIE     </div>`)[0];
+                popup_46530ddf56b5508c9ebe4cbb6794b0fc.setContent(html_160f93904a63c71f2bcfb10b7c6d48cb);
+            
+        
+
+        circle_marker_3773756953711d9109cceeaa1e34e6a2.bindPopup(popup_46530ddf56b5508c9ebe4cbb6794b0fc)
+        ;
+
+        
+    
+    
+            circle_marker_3773756953711d9109cceeaa1e34e6a2.bindTooltip(
+                `<div>
+                     Tipo: ROBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
