@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>
+    body { margin: 0; padding: 0; }
+    .folium-map { position: absolute !important; top: 0 !important; bottom: 0 !important; left: 0 !important; width: 100% !important; height: 100vh !important; transition: left 0.3s ease, width 0.3s ease; z-index: 1; }
+    @media (min-width: 992px) { body:not(.sidebar-plegada-activa) .folium-map { left: 320px !important; width: calc(100% - 320px) !important; } }
+    .leaflet-control-layers { position: fixed !important; top: 0 !important; left: 0 !important; width: 320px !important; height: 100vh !important; margin: 0 !important; padding: 25px !important; background-color: #1E5F91 !important; color: white !important; border: none !important; border-radius: 0 !important; z-index: 1000 !important; overflow-y: auto !important; transition: transform 0.3s ease-in-out; }
+    .sidebar-plegada { transform: translateX(-100%); }
+    #toggle-sidebar { position: fixed; top: 10px; left: 330px; z-index: 2000; background: #1E5F91; color: white; border: 2px solid #FFD700; padding: 10px; cursor: pointer; border-radius: 5px; transition: left 0.3s; font-family: Arial, sans-serif; font-weight: bold; }
+    .boton-plegado { left: 10px !important; }
+    .seccion-contenedor { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+    .seccion-header { display: flex; align-items: center; justify-content: space-between; background: rgba(0,0,0,0.3); padding: 8px; cursor: pointer; border-left: 4px solid #FFD700; }
+    .seccion-titulo-texto { font-weight: bold; color: #FFD700; font-size: 11px; text-transform: uppercase; flex-grow: 1; margin-left: 10px; }
+    .checkbox-maestro { transform: scale(1.2); cursor: pointer; margin-right: 5px; }
+    .flecha { font-size: 10px; transition: transform 0.3s; margin-left: 5px; }
+    .colapsado .flecha { transform: rotate(-90deg); }
+    .grupo-contenido { padding-left: 10px; margin-top: 5px; }
+    .grupo-contenido.oculto { display: none; }
+    .leaflet-control-layers-overlays label { color: white !important; margin-bottom: 3px !important; display: block !important; cursor: pointer; font-size: 11px !important; }
+</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_86e5e95d7c2b49e645942e276b10c795 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    <div id="toggle-sidebar" onclick="toggleSidebar()">Plegar Menú</div>
+    
+<script>
+    function toggleSidebar() {
+        var sidebar = document.querySelector('.leaflet-control-layers');
+        var boton = document.getElementById('toggle-sidebar');
+        var body = document.querySelector('body');
+        sidebar.classList.toggle('sidebar-plegada');
+        boton.classList.toggle('boton-plegado');
+        body.classList.toggle('sidebar-plegada-activa');
+        boton.innerText = sidebar.classList.contains('sidebar-plegada') ? 'Ver Menú' : 'Plegar Menú';
+        setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 310);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var layersControl = document.querySelector('.leaflet-control-layers-overlays');
+        var labels = Array.from(layersControl.querySelectorAll('label'));
+        layersControl.innerHTML = '<div style="text-align: center; border-bottom: 2px solid white; margin-bottom: 20px; padding-bottom:10px;">' +
+                                  '<h3 style="margin:0; font-size:16px;">Mapa Regional</h3>' +
+                                  '<h4 style="margin:5px 0 0 0; font-size:12px; opacity:0.8;">Análisis del Delito</h4></div>';
+
+        function crearCategoria(filtros, nombreVisible, esDesplegable) {
+            var contenedor = document.createElement('div');
+            contenedor.className = 'seccion-contenedor' + (esDesplegable ? ' colapsado' : '');
+            var header = document.createElement('div');
+            header.className = 'seccion-header';
+            var chkPadre = document.createElement('input');
+            chkPadre.type = 'checkbox';
+            chkPadre.className = 'checkbox-maestro';
+            var titulo = document.createElement('div');
+            titulo.className = 'seccion-titulo-texto';
+            titulo.innerText = nombreVisible;
+            var flecha = document.createElement('span');
+            flecha.className = 'flecha';
+            flecha.innerText = '▼';
+            header.appendChild(chkPadre);
+            header.appendChild(titulo);
+            if(esDesplegable) header.appendChild(flecha);
+            var cuerpo = document.createElement('div');
+            cuerpo.className = 'grupo-contenido' + (esDesplegable ? ' oculto' : '');
+            
+            var items = labels.filter(l => filtros.some(f => l.innerText.includes(f)));
+            items.forEach(l => cuerpo.appendChild(l));
+            
+            if(items.length > 0) {
+                layersControl.appendChild(contenedor);
+                contenedor.appendChild(header);
+                contenedor.appendChild(cuerpo);
+                titulo.onclick = function() { if(esDesplegable) { cuerpo.classList.toggle('oculto'); contenedor.classList.toggle('colapsado'); } };
+                chkPadre.onchange = function() { var estado = this.checked; cuerpo.querySelectorAll('input').forEach(c => { if(c.checked !== estado) c.click(); }); };
+            }
+        }
+
+        // NUEVO: Creamos la sección del mapa de calor arriba de todo de manera independiente (fijo, sin colapsar)
+        crearCategoria(["🔥"], "Herramientas de Densidad", false);
+
+        // Secciones tradicionales de Municipios por meses
+        crearCategoria(["🔴"], "Lobería", true);
+        crearCategoria(["🟢"], "San Cayetano", true);
+        crearCategoria(["🔵"], "Necochea", true);
+    });
+</script>
+    
+            <div class="folium-map" id="map_86e5e95d7c2b49e645942e276b10c795" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_86e5e95d7c2b49e645942e276b10c795 = L.map(
+                "map_86e5e95d7c2b49e645942e276b10c795",
+                {
+                    center: [-38.5545, -58.7396],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7daeb90ee838b2d96bae1e8ddc53e109 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7daeb90ee838b2d96bae1e8ddc53e109.addTo(map_86e5e95d7c2b49e645942e276b10c795);
+        
+    
+            var feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9b5ffdf69910d94a38d152dfab430a2f = L.circleMarker(
+                [-38.163812, -58.781483],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_97661e5075f738dc7dae7831666c9a40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78d5d60c5162d02f1589799767facb79 = $(`<div id="html_78d5d60c5162d02f1589799767facb79" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-13</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>09:29:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>DEL VALLE 100</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que el dicente refiere que posee obra en construccion (al momento inactiva), cual se emplaza en sito calle Provincia de Corrientes nro. 860 de este medio (Barrio Villa Ercilla): lugar donde se encuentra sin habitar al momento. Pero hace saber que al lado de la obra reside hace años su progenitora. Refiere que el dia Viernes 12 de Junio del cta año, siendo las 10:00 Horas, el dicente se acerca a su obra donde constata que autores ignorados violentando pilar de luz: sustraen 50 metros de cables subterraneo, de color violeta, el cual se hallaba bajo tierra, y que ignorados han utilizado algun elemento para cavar y retorer el cable. Menciona que el dia Domingo 07 de Junio del cte año, se acerca a la casa de su madre, y ademas revisa su obra donde no constata anomalias. No valua. No seguro. No camaras. Refiere que no posee sospecha, pero si mantuvo entrevista con una femenina la cual reside en parte trasera de la casa de su progenitora de Apellido LEON, la cual enterada del problema de denunciante le hace saber que el dia Lunes 08 de Junio a las 10:00 Horas, observo a dos masculinos encapuchados los cuales poseian palas, en el terreno de denunciante lo que presume que fue el momento donde se encontraban sustrayendo tales cables. Argumenta tambien que su al albañil de la obra fue Nestor Tita RODRIGUEZ, el cual poseia de empleados a un masculino al cual el dicente lo conoce como “Patalanga”, pero desconoce nombre y apellido, pero residen en mismo barrio (Villa Ercilla) por calle Ameghino. Es todo lo que desea denunciar.- "                     </div>                 </div>             </div>             </div>`)[0];
+                popup_97661e5075f738dc7dae7831666c9a40.setContent(html_78d5d60c5162d02f1589799767facb79);
+            
+        
+
+        circle_marker_9b5ffdf69910d94a38d152dfab430a2f.bindPopup(popup_97661e5075f738dc7dae7831666c9a40)
+        ;
+
+        
+    
+    
+            var circle_marker_57c7aa4de9d1324282d6585d308de227 = L.circleMarker(
+                [-38.173193, -58.776481],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_abf33a9767c6fa2ee0c075dc065a4ef1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_463ae1b7adf4da61b041fd2128bd099d = $(`<div id="html_463ae1b7adf4da61b041fd2128bd099d" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-16</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>11:06:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>DONOFRIO 256</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que la dicente refiere que vive y se domicilia en lugar antes consignado menciona que el dia 16 de Junio del cte. año, se retira de su vivienda siendo las 20:30 horas aproximadamente. Donde a su retorno ya dia 17 de Junio del cte año, siendo las 00:15 horas retorna a su vivienda, donde constata puerta trasera abierta de en par en par, la cual se compone de dos hojas, de vidrios repartidos, donde uno de ellos posee daño, el cual le permitio a ignorados ingresar al interior previo a forzar varilla de madera la cual funcionaba de seguro. Que misma consta que autores ignorados sustraen del freezer bolsas de carne, menciona que varias bolsas trasparenten con la inscripcion correspondiente del corte de carne, sin lograr individualizar en estos momentos, y ademas constata el faltante de un reloj digital tactil, con la pulsera de color rosa clarito y pantalla y armazon de color negra. Deja constancia y hace entrega de pulsera ajena a sus pertenencias la cual se hallaba en el piso de su habitacion, esta se describe como pulsera de hilo color lila, con 5 algunas perlas. Refiere que autor/es ingresa por parte trasera ya que por el frente es imposible. No posee seguro, no valua, que no presenta sospechas, ademas refiere que no mantiene inconvenientes con personas, tampoco sus vecinos, es la primera vez que sucede algo asi.- es todo lo que desea denunciar.- Estacion de poilicia comunal loberia: En marco O.S N°110/26 - SSRAII 2622/26, personal de GTO Lobería y colaboración de Sub DDI Lobería, Comisaria de la Mujer y la Familia Lobería, realizan Orden de Allanamiento (dos objetivos), en marco de causa 11-00-003657-26 otorgada por el Juzgado. de Garantías Nro. 01 a cargo del Dr. Nicolás LAMBERTI del Dpto. Judicial De Necochea. Objetivo 1: Calle Jauretche Nro. 329 de Lobería vivienda de Steven Leonel Hauscarreague (20) la cual materializada, se procedió al Secuestro de: -Prendas de vestir que utilizo al momento de cometer el Hecho - Un Reloj pulsera tipo táctil, relacionada con el presente hecho. Objetivo 2: sito en Calle Scalabrini Ortiz Nro. 1350 vivienda de Ricardo Javier RIOS (34) lugar donde arrojo resultado Negativo"                     </div>                 </div>             </div>             </div>`)[0];
+                popup_abf33a9767c6fa2ee0c075dc065a4ef1.setContent(html_463ae1b7adf4da61b041fd2128bd099d);
+            
+        
+
+        circle_marker_57c7aa4de9d1324282d6585d308de227.bindPopup(popup_abf33a9767c6fa2ee0c075dc065a4ef1)
+        ;
+
+        
+    
+    
+            var circle_marker_687b84877764e468edd43db18d347956 = L.circleMarker(
+                [-38.172896, -58.779742],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_981f2eef7196b7271943ba89deb0e0d9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e343144f0a2a4af13886d0b6acece94c = $(`<div id="html_e343144f0a2a4af13886d0b6acece94c" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-18</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>22:00:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>GRAL LAMADRID 720</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "En la ciudad de Loberia, partido del mismo nombre, Provincia de Buenos Aires, Republica Argentina, Jurisdiccion de la Estacion de Policia Comunal Loberia, a los dieciocho dias del mes de Junio del Año dos mil veintiseis, siendo aproximadamente las 22:20 horas, la Oficial Subinspector Julieta SOSA, el Teniente Javier QUERAN y la Subteniente Yamila TOLEDO, a bordo del movil identificable N° 30846, se encontraban realizando recorridas preventivas por el ejido urbano, cuando al circular por calle Lamadrid y arribar a calle Barreira, observaron a tres sujetos masculinos desplazandose a pie por la via publica, llamando particularmente la atencion que uno de ellos transportaba sobre sus hombros un HORNO ELECTRICO DE ACERO INOXIDABLE COLOR GRIS, circunstancia poco habitual para el horario y lugar en cuestion. Ante ello, y a los fines de adoptar los recaudos de seguridad, solicitaron mediante equipo de comunicacion el apoyo del movil N° 30907, a cargo del Teniente David ROMERO y el Teniente Damian MALDONADO, por lo que una vez reunidos ambos moviles y contando con personal suficiente para llevar a cabo la identificacion, procedieron a realizarlo en la interseccion de calles Lamadrid y Flores. Que de esta forma y al descender de los moviles, los efectivos reconocieron inmediatamente a los tres individuos como 1) Ayrton TAYLOR, 2) Steven HAUSCARRIAGUE y 3) Javier RIOS, personas conocidas en el ambito policial. Por lo que en principios consultado el motivo por el cual transportaban dicho electrodomestico, manifestaron que provenian de la vivienda de un familiar. En particular, Javier RIOS, quien llevaba el horno, refirio que el mismo pertenecia a una hermana suya y que lo trasladaba hacia la casa de otro familiar, donde mantendrian una reunion para cenar. Que si bien las explicaciones brindadas resultaban razonablemente creibles y al no observar en principio otro elemento que demuestre lo contrario, el personal decidio tomar nota de ello, permitiendo posteriormente que continuaran su recorrido. Acto seguido, ambos moviles retomaron las recorridas preventivas y, tras recorrer aproximadamente doscientos metros por calle Lamadrid, observaron una vivienda ubicada en la interseccion con calle Saenz que presentaba claros signos de haber sido violentada, concretamente, se advirtio una ventana rota y un importante desorden visible desde el Calle: En virtud de ello, los efectivos descendieron de las unidades y realizaron una inspeccion visual por fuera del inmueble, constatando la existencia de daños en el interior, por lo que en ese momento, la Inspectora Julieta SOSA, quien si bien se hallaba realizando tareas preventivas, ademas cumple funciones como Oficial de Servicio y conocia al propietario de la finca, recordando haber recepcionado en oportunidades anteriores denuncias vinculadas a conflictos persistentes entre los sujetos identificados momentos antes y el morador del lugar, de nombre Carlos TELECHEA. Que por ese motivo, establecio comunicacion telefonica desde su abonado particular con el propietario del inmueble, al numero (2262-238638), el cual poseia consiguio debido a denuncias previas y al ser atendida por el señor TELECHEA, este manifesto que se habia retirado de la vivienda alrededor de las 17:00 horas, dejando la misma en perfectas condiciones y sin anomalias., por lo que al informarle sobre los daños constatados, fue consultado acerca de la existencia de un horno electrico de color gris en el interior de la finca, respondiendo que si poseia uno de ellos: Seguidamente, los efectivos verificaron por la ventana dañada que dicho elemento no se hallaba en la cocina, lugar donde habitualmente se encuentra, circunstancia que reforzo inmediatamente la sospecha de que el horno transportado por Javier RIOS podria corresponder al sustraido momentos antes: Ante lo cual, ambos moviles iniciaron una recorrida con el claro objetivo de localizar nuevamente a los tres sujetos identificados, logrando dar con los mismo a las 22:36 horas, observandolo desplazarse a pie por calla Avellaneda entre Las Heras y Moreno: Tal es asi que inmediatamente los efectivos descendieron de las unidades e impartieron las directivas para proceder a su identificacion, ordenandoles colocar sus manos sobre los moviles policiales. Mientras Ayrton TAYLOR y Steven HAUSCARRIAGUE acataron inicialmente las ordenes impartidas, Javier RIOS adopto una actitud hostil y desafiante, expresando a viva voz: SIC A mi dejenme en paz, nadie me va a meter preso. Frente a ello, el personal inicio con la persuasion verbal, intentando lograr la colaboracion de este y asi poder efectuar un cacheo superficial y preventivo, destinado a dirimir cualquier riesgo para la integridad fisica propia o de terceros. Sin embargo, al advertir que RIOS continuaba con una postura negativa y desobedecia las directivas impartidas, los efectivos avanzaron algunos pasos con la intencion de tomar contacto fisico y asegurar la situacion. Que en ese momento cuando Steven HAUSCARRIAGUE, quien hasta entonces permanecia con las manos apoyadas sobre el patrullero, giro bruscamente y extrajo desde la zona de su cintura un ARMA BLANCA, comenzando a esgrimirla en direccion al personal policial. Mientras apuntaba con la misma hacia los uniformados, profirio amenazas a viva voz, refiriendo SIC: Suelten a mi hermano porque los corto a todos, en clara referencia a Javier RIOS, agregando ademas expresiones las cuales manifestaba su intencion de agredir a los efectivos si continuaban con el procedimiento. Que por este motivo, la situacion genero un cambio en la prioridad de los uniformados, ya que la totalidad del personal puso toda su atencion en neutralizar la amenaza representada por HAUSCARRIAGUE y de este modo, aprovechando dicha circunstancia, Javier RIOS emprendio la fuga a pie a gran velocidad, perdiendose de vista por calles las Heras, lanzando piedras hacia los patrulleros en su huida, sin lograr impactar en ellos. No obstante, los efectivos continuaron focalizados en la reduccion de HAUSCARRIAGUE, por lo que mediante ordenes verbales y aprovechando un instante de distraccion del mismo, lograron acortar rapidamente distancia, sujetando el brazo con el que empuñaba el arma blanca y logran reducirlo, que asi, consiguieron despojarlo del arma y colocarle un juego de esposas para su contencion. Que paralelamente, Ayrton TAYLOR fue reducido sin necesidad de emplear fuerza alguna, procediendose igualmente a su esposamiento: Finalmente, teniendo en cuenta que el procedimiento se desarrollaba a escasos metros de una vivienda perteneciente a familiares de Javier RIOS, sumado a que este habia logrado darse a la fuga momentos antes, existiendo asi la posibilidad de que regresara acompañado por terceros con la intencion de entorpecer el accionar policial o peor aun, favorecer la liberacion de HAUSCARRIAGUE, y considerando ademas la escasa circulacion de personas y vehiculos en horario que acontecieron los hechos, el personal resolvio priorizar la seguridad propia y del procedimiento, decidiendo trasladar de inmediato a los aprehendidos a las unidades policiales y de alli, hacia la estacion de Policia Comunal Loberia, dandosele lectura a viva voz de los derechos conferidos por el articulo 60 del CPP. Que por todo ello, atento a la urgencia que demandaba el procedimiento, se procedio al SECUESTRO de: 1) Un cuchillo de unos 15 centimetros, tipo corta pluma, con su cabo de material simil hueso y hoja cual reza “Tramontina Stainless – Brasil” – 2) Horno electrico de color gris, material acero inoxidable, marca Peabody, cual posee el faltante de dos perillas, SIN la presencia de un testigo habil de actuacion: Por otro lado y una vez en la dependencia policial, y encontrandose la situacion plenamente controlada, el Subteniente Damian MALDONADO procedio a efectuar nuevamente un cacheo superficial preventivo sobre los aprehendidos, ello en resguardo de la integridad fisica del personal policial y al palpar la zona de la cintura de Ayrton TAYLOR, se constato la presencia de un elemento solido oculto entre sus prendas de vestir, motivo por el cual se procedio a su inmediata extraccion, resultando ser un 3) Cuchillo de aproximadamente 15 centimetros de longitud, con hoja metalica de color gris oscuro y sin marca visible, procediendose a su SECUESTRO Por tal razon, habiendo infringido prima facie la infraccion prevista y reprimida por el Articulo 42 del Decreto Ley 8031/73, sera notificado separadamente del inicio de actuaciones contravencionales, dandosele inmediata lectura de los derechos y garantias que le confieren el Articulo 60 del Codigo Procesal Penal y el Articulo 16 de la Ley 13.482. No obstante se procede a la correcta identificacion de los causados quien dicen ser y llamarse: 1) Ayrton David TAYLOR EULOGIO, Argentino, instruido, soltero, de 26 Años, DNI. Nro. 41.800.490, hijo de Don Regino y Doña Maria EULOGIO 2) Leonel Steven HAUSCARRIAGUE, Argentino, instruido, soltero, nacido en la Ciudad de Loberia el 28/08/2006, poseedor de dni.47.640.504 y el tercer sujeto que logra huir 3) Ricardo Javier RIOS, argentino, instruido, soltero, albañil, de 34 años de edad, hijo de Don Ricardo Emir (v) y de Doña Marcela Silvana MORALES (v), nacido en Loberia el 16/06/1992, titular del D.N.I. Nro. 36.773.036 Que siendo las 23:05 horas, el titular de la dependencia policial, Subcomisario Angel MALDONADO, mantuvo comunicacion telefonica con la Dra. Vanesa SCHNEIDER, titular de la Ayudantia Fiscal de Loberia, quien interiorizada de los pormenores, avalo las Aprehensiones practicadas y dispuso la imputacion de los causantes. En tal sentido, respecto de Steven Leonel HAUSCARRIAGUE, se dispuso su imputacion por los delitos de: “Robo Agravado, Atentado y Resistencia a la Autoridad y Amenazas Agravadas”. Asimismo, respecto de Ayrton TAYLOR, se dispuso la imputacion por el delito de: “Robo Agravado” tipificado en el Articulo 166 del CP y en referencia a Ricardo Javier RIOS, se dispuso su imputacion de oficio por los delitos de Robo Agravado y Resistencia a la Autoridad tipificado en el Art 166 y 239 del CP. Finalmente son entregados a la oficial de servicio en turno, a la sazon de la Oficial Subinspector Julieta SOSA quien cumplimentara las actuaciones judiciales y notificara separadamente de las causas que se le imputan Que no siendo para mas, se da por finalizada la presente, la cual previa lectura, es firmada y ratificada por los que en ella han intervenido.-  AMPLIACION: Habiendo ambos causantes mantenido audiencia a tenor del Art. 308 del C.P.P el Sr. Juez subrogante del Juzgado de Garantías Nro. 01 Dr. Nicolas LAMBERTI del Dpto. Judicial de Necochea dispone la inmediata detención tanto de HAUSCARRIAGUE como de TAYLOR, por lo que se solicita cupo de alojamiento en dependencia habilitada para tal fin designándose Cria. Primera de Necochea la que se efectivizará con fecha 20/06/2026 en horas de la mañana. Asimismo en el marco de orden de servicio 2643/2026 se efectivo orden de allanamiento en dos objetivos sito en calle Jauretche casa 9 y calle scalabrini Ortiz y curuchet con el fin de llevar a cabola detencion del ciudadano RIOS Ricardo Javier, arrojando resultado negativo. PU COP NRO. 178859/2026 - Se inicia PP 11-00-003707-26/00"                     </div>                 </div>             </div>             </div>`)[0];
+                popup_981f2eef7196b7271943ba89deb0e0d9.setContent(html_e343144f0a2a4af13886d0b6acece94c);
+            
+        
+
+        circle_marker_687b84877764e468edd43db18d347956.bindPopup(popup_981f2eef7196b7271943ba89deb0e0d9)
+        ;
+
+        
+    
+    
+            var circle_marker_670eebf5b83493a103808de40bbf1240 = L.circleMarker(
+                [-38.161447, -58.776732],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_80a76c058dfb1accfd1396bdcf2f1cc7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8319da29578823d3f6da87dc31ddd483 = $(`<div id="html_8319da29578823d3f6da87dc31ddd483" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-05</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>17:09:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>JUAN BAUTISTA ALBERDI 343</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que el dicente refiere que es propietario (se encuentra en sucesion) de un terreno ubicado en calle Alberdi y Paso, en la cual cuenta con una vivienda que no posee cuidador ni morador, en la misma es de uso para la cria de Patos, Gallinas y gallos, el mismo refiere que hace dos dias aproximadamente en dicho lugar observa el faltante de un bebedero, el cual estaba hecho de fierro, parecido a un tambor de 200 litros, de una altura de 60 cm aproximadamente, de un color gris, por lo que el recuerda, pero el mismo estaria cubierto de barro, el mismo tenia unos agujeros en el borde, de los cuales tenia unos alambres atados como una manija provisoria, el mismo manifiesta que no hay faltante en el lugar, pero que dicho lote, se encontraba abierto hace ya unos 20 dias o un mes, ya que se estaria reparando el alambre perimetral y el alambrador se habria enfermado. Que al consultarle si posee sospechas, el mismo refiere que no, Que si posee camaras privadas, refiere que no, pero tiene conocimiento que en la esquina habria camaras pertenecientes a monitoreo local, las cuales seran pedidas. Que al momento de consultarle si posee placas fotograficas del elemento sustraido, el mismo refiere que no, dejando asentado que no es la primera vez que ingresan a su lote para hurtarle cosas. "                     </div>                 </div>             </div>             </div>`)[0];
+                popup_80a76c058dfb1accfd1396bdcf2f1cc7.setContent(html_8319da29578823d3f6da87dc31ddd483);
+            
+        
+
+        circle_marker_670eebf5b83493a103808de40bbf1240.bindPopup(popup_80a76c058dfb1accfd1396bdcf2f1cc7)
+        ;
+
+        
+    
+    
+            var circle_marker_fd1cb1c9f76ddeeb075cda3348be4d4f = L.circleMarker(
+                [-38.1691, -58.793622],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_03e8fa3b634776d0fd3859f9c15b664e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d42dc1c5509bb92818f157ee742be0b5 = $(`<div id="html_d42dc1c5509bb92818f157ee742be0b5" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-05</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>21:52:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>MORENO 841</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que el dicente reside en el lugar antes consignado. Que en el dia de la fecha y siendo las 21:00 Horas en momentos en que arribo a la finca junto a su hijo Joaquin Maldonado, de 03 años de edad, momento en que advirtio que la ventana del frente que comunica al sector de la cocina se hallaba abierta de par en par, motivo por el cual al apersonarse noto en el sector de la cocina distintas huellas de barrio en el sector de la cocina, sin hallar desorden alguno, pero constatando el faltante de una garrafa de 10 Kg. De color rojizo o naranja desgastado, sin recordar marca de la misma, pero que se las vende el comercio (Despensa) en el comercio de Marcelo Peralta, como asi tambien el faltante de un telefono celular marca SAMSUMG modelo A15, de color celeste oscuro, con funda transparente en detalles en color marron, con la particularidad de poseer la pantalla en el lateral superior izquierdo se hallaba astillada, con abonado telefonico 2262 – 374352 de la empresa CLARO, elemento que se hallaba cargandose pode debajo del televisor, dejando el cargador suspendido en el aire. Que no constato demas faltantes, por lo que de inmediato dio aviso a la policia, manteniendo entrevista con un vecino que se encuentra en la parte trasera, mas bien del fondo del terreno, lugar donde reside el joven Miguel ECHARREN, quien le manifestara que horas antes se habian apersonado en su vivienda los hermanos Ricardo RIOS apodado “CHOCHO” y Leonel HAUSCARRIGUE y como Miguel se encontraban con otros amigos, decidieron echarlos por diferencias de peleas, motivo por el cual estos hermanos se retiraron, caminando por la casa del denunciante quienes les ingresaron por la ventana del frente y se retiraron con la garrafa a cuestas, todo ello advertido por el vecino Miguel ECHARREN, quien no los freno ni llamo a nadie porque no quiere mantener problemas para con los mismos, dado que los habia echado para evitar mas inconvenientes vecinales, pero sindicando como los autores del atraco en su vivienda. Que pudo advertir que los perpetradores le aflojaron una madera del marco de la ventana que se halla en precarias condiciones, introduciendo sus manos para abrir la traba interna, logrando abrir las ventanas sin efectuar daño alguno. Que valua lo sustraido en pesos Cuatrocientos Mil ($400.000) estimativamente. Que no posee seguro que ampare lo sustraido. Se prescinde de Policia Cientifica, por considerar que no se hallan rastros materiales y/o indicios vehementes para el esclarecimiento del presente, dejando constancia que al arribo del personal la ventana se encontraba cerrada y no se constato desorden alguno. Es todo lo que desea denunciar."                     </div>                 </div>             </div>             </div>`)[0];
+                popup_03e8fa3b634776d0fd3859f9c15b664e.setContent(html_d42dc1c5509bb92818f157ee742be0b5);
+            
+        
+
+        circle_marker_fd1cb1c9f76ddeeb075cda3348be4d4f.bindPopup(popup_03e8fa3b634776d0fd3859f9c15b664e)
+        ;
+
+        
+    
+    
+            var circle_marker_cd3ab946ba19a47ad920539cb2283a46 = L.circleMarker(
+                [-38.165801, -58.785774],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_5fe80f13d56e986409f1ffea24a646cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a68f501183884016dd359e50c0b08b27 = $(`<div id="html_a68f501183884016dd359e50c0b08b27" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-18</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>15:30:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>AVDA SARMIENTO 254</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que el dicente refiere que resulta propietario de Toyota Hilux año 2014 de color gris plata, dominio colocado NSY-425, rodado donde siempre utilizo en la caja de carga una cajon de herramientas metalico de color chapa, y en tapa superior posee manija fija, donde el mismo constata el faltante en el dia de hoy 19 de Junio del cte año. a las 09:00 horas. Mismo hace saber y esta seguro que las herramientas estaban en el dia de ayer 17 de Junio del cte año, 15:30 horas por que lleg del campo. Ademas hace saber que el dia 17 de Mayo desde las 15:30 horas, deja estacionada su camioneta en la via publica en Avda Campos mano ascendente enfrente a la casa de la cultura, luego se retira hacia Avenida Sarmiento Nro. 254 permaneciendo en ese lugar. Luego mismo dia y ya siendo las 17:00 horas denunciante estaciona su rodado en calle Ameghino Nro. 30 y tomando sentido de circulacion mano derecha. Acto seguido retornar a su camioneta a las 18:00 horas y se dirige nuevamente a su vivienda Avda Sarmiento Nro. 254 de esta. Que siendo las 18:40 horas el dicente vuelve a tomar su camioneta y se dirige al centro cultural Tito Filgueiras sito calle Raggio nro. 350 aproximadamente, permaneciendo alli hasta las 20:00 Horas. Acto seguido hace saber que el dicente se retira de la ciudad hacia su campo. El mismo en la fecha constata que del interior del cajon de herramienta posee faltante 1) Una martillo (masita) de un kilo, cabo de madera – 2) Pinza pico loro marca BHACO: mango color naranja 3) Dos pinzas pequeñas no recuerda marca, color una amarilla y roja, restante manguera de agua – 4) destornilladores varios punta paleta y punta Phillips de distintas medidas, no recuerda colores 5) Una BHACO pintada celeste Nro. 70 - 6) Una BHACO Nro. 72 – 7) un cuchillo artesanal con mango de caño, y hoja de cuchilla de sembradora 8) Un corta fierro mediano. No valua. Refiere que no presenta sospecha. Que desconoce el lugar de sustraccion, pero esta seguro que fue en los lugares que antes describio y en tales laspsos de tiempo- es todo lo que desea denunciar.- "                     </div>                 </div>             </div>             </div>`)[0];
+                popup_5fe80f13d56e986409f1ffea24a646cd.setContent(html_a68f501183884016dd359e50c0b08b27);
+            
+        
+
+        circle_marker_cd3ab946ba19a47ad920539cb2283a46.bindPopup(popup_5fe80f13d56e986409f1ffea24a646cd)
+        ;
+
+        
+    
+    
+            var circle_marker_6760fcf55d288e69144f51c6ddeaf814 = L.circleMarker(
+                [-38.163329, -58.784782],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_7539c5019b8069928c9a6f21897f0df9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_35e65680637a6f77129134abd4057d8e = $(`<div id="html_35e65680637a6f77129134abd4057d8e" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-19</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>20:40:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>BELGRANO 50</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que el dicente refiere que resulta progenitor de joven Jesus Nahuel CARRAZANZA (15), el cual le menciona que en el dia de la fecha Viernes 19 de Junio del cte. año siendo las 20:20 Horas, le cuenta que en su Motovehiculo arribo a la casa de su progenitora en sito calle Belgrano Nro. 50 de este medio lugar donde es un albergue transitorio, que posee ingreso oscuro hacia el interior dejandola en lugar de estacionamiento. Que siendo las 20:40 aproximadamente el dicente refiere que sale caminando desde mencionado lugar hacia Avda. Mitre Esq Avenida Campos de este me dio a por fines de asistir a un kiosco que alli se emplaza a su regreso ya siendo las 20:59 Horas, al arribar al ingreso de la casa de madre constata que autores ignorados sustraen Motovehiculo Marca Zanella modelo ZB 110 cc, sin dominio colocado, numero de chasis 8ª6MBSCA4EC900684, numero de motor 1P52FMHD2013038: color negra, como caracteristica posee en cachas plasticas faltantes en frente y laterales, llanta delantera colo roja y negra, y asiento en malas condiciones en partes dañado: en regular estado de conservacion, la cual se encontraba sin llave de ignicion colocada, con traba volante colocado, con tanque de combustible lleno. Que preguntado si desde via publica se avistaba el rodado mismo refiere que NO. Que preguntado si posee camaras de seguridad refiere que no, que valua la sustraccion en $500.000 mil pesos aproximadamente. Que no posee problemas con ningun tipo de personas. Ninguna persona consulto por el rodado, es decir que haya tenido intenciones de adquirirla. El uso del Motovehiculo lo realizaba su hijo. No Sospechas. NO posee Seguro. Solo tiene en su poder Titulo del Motovehiculo. Es todo lo que tiene para denunciar.-"                     </div>                 </div>             </div>             </div>`)[0];
+                popup_7539c5019b8069928c9a6f21897f0df9.setContent(html_35e65680637a6f77129134abd4057d8e);
+            
+        
+
+        circle_marker_6760fcf55d288e69144f51c6ddeaf814.bindPopup(popup_7539c5019b8069928c9a6f21897f0df9)
+        ;
+
+        
+    
+    
+            var circle_marker_acabbda697588ceb63a188960a6468b2 = L.circleMarker(
+                [-38.164387, -58.78218],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_2d7af08377f7b41c56042d630f06aad0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a35190156235c6cd931a7820d318da5 = $(`<div id="html_1a35190156235c6cd931a7820d318da5" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-20</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>19:44:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>AV SAN MARTIN 50</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que en el Dia de la fecha a las 17:00 hs aproximadamente es anoticiado por el coordinador de inspectores, Tobal Adrian Gustavo, que hace unos instantes previos los inspectores de transito Arruti Lorena, Azcona Raul y Godoy Mariano, habian realizando un secuestro de un motovehiculo en calle Lisandro de la torre y Belgrano, el cual previo fue interceptado ya que el mismo no contaba con placa patente correctamente colocado por lo que el conductor se baja del rodado y la trata de llevarla a pie, siendo perseguido por personal de transito, donde advierten que el sujeto lanza el motovehiculo la deja tirada en el piso y se retira del lugar sin aportar datos alguno. Que en relacion a ello personal la carga a su rodado. Y atento a que el conductor no brindo ningun tipo de datos, sino que lanzo la moto en el piso y se retiro del lugar como se dijo anteriormente, solicitan colaboracion policial para la identificacion del sujeto aportando algunos datos. Que luego de ello el personal policial logra interceptar a este sujeto en av San Martin n° 70 aproximadamente de este medio, por lo que los inspectores se acercan al lugar. Que en interin comienza acercarse mas personas, donde uno de ellos familiar del infractor resultando ser Elias MALDONADO se pone muy nervioso, por lo que policia trata de calmarlo, momento que otro grupo se acerca a la camioneta donde se hallaba el rodado, la baja y se la lleva del lugar, sujeto este que no resulta ser el propietario o por lo menos el infractor. Todo sin autorizacion alguna por parte de los inspectores, quienes trataban que no se retire y contener. Que en relacion al infractor mismo refiere que posteriormente toma conocimiento que se trata de Lucas MALDONADO DNI N°48.790.486 datos aportados por personal policial. Que en relacion al motovehiculo secuestrado mismo refiere que se trata de motovehiculo 110 cc de color negro que desconoce mas datos pero adjunta videos donde se logra ver el rodado en cuestion. Que preguntado si posee numeracion de acta infraccionada mismo refiere que en este acto no, pero que adjuntara de ser necesario, dejando constancia que no se llego a la confeccion completa en virtud a lo ocurrido y en relacion a pasos legales que solicita el juzgado de Faltas intervinientes (datos del infractor y datos del rodado). Es cuanto desea denunciar. "                     </div>                 </div>             </div>             </div>`)[0];
+                popup_2d7af08377f7b41c56042d630f06aad0.setContent(html_1a35190156235c6cd931a7820d318da5);
+            
+        
+
+        circle_marker_acabbda697588ceb63a188960a6468b2.bindPopup(popup_2d7af08377f7b41c56042d630f06aad0)
+        ;
+
+        
+    
+    
+            var circle_marker_94adef64a8973a15cd2ef3c08edfce60 = L.circleMarker(
+                [-38.173079, -58.790999],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f);
+        
+    
+        var popup_acd71f47120a75549f0017501156e0d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_de6be568f450223b43fe2d4aa88e82fe = $(`<div id="html_de6be568f450223b43fe2d4aa88e82fe" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: red; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-27</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>18:30:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>RIVADAVIA</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>S/D</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Que la dicente se domicilia en calle Rivadavia N° 989 de este medio. Que en el dia de la fecha 27/06/2025, siendo alrededor de las 13:45 horas aproximadamente se retira de su domicilio, dejando la vivienda cerrada, es decir con llaves. Que siendo alrededor de las 18:30 horas, regresa a su vivienda, y al momento de ingresar al baño observa que autores ignorados habian ingresado por el ventiluz del baño el cual es de gran tamaño, que no posee vidrios sino un panel de plastico pegado por lo que para ingresar debieron despegarlo, encontrando huellas de barro en el suelo, en el inodoro, las cuales dan hacia una habitacion, donde constata faltante de una garrafa de 10 kilos, de color naranja, la cual se encontraba vacia, sin marca, la cual autores ignorados la sacan por el mismo lugar donde ingresan ya que las puertas de su vivienda se encontraban cerradas, y que ademas en la parte externa encuentra un balde dado vuelta debajo del ventiluz el cual utilizo para subirse para ingresar. Que a preguntas que se le formulan, refiere que posee sospechas de una persona a quien conoce como Leonel Hauscarriague, el cual en una oportunidad fue a su domicilio a cortar leña con su hermano e ingreso a la vivienda, y guardo la motosierra en la misma habitacion donde estaba la garrafa, por lo que este sujeto ya conocia el lugar. "                     </div>                 </div>             </div>             </div>`)[0];
+                popup_acd71f47120a75549f0017501156e0d8.setContent(html_de6be568f450223b43fe2d4aa88e82fe);
+            
+        
+
+        circle_marker_94adef64a8973a15cd2ef3c08edfce60.bindPopup(popup_acd71f47120a75549f0017501156e0d8)
+        ;
+
+        
+    
+    
+            var feature_group_a3c1e3583bd380e1928c1efef6b8dc66 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3fa46b3af73b692430b10ff59727faed = L.circleMarker(
+                [-38.34551, -59.62119],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a3c1e3583bd380e1928c1efef6b8dc66);
+        
+    
+        var popup_273188d75000c086eb3a5c554830e3c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3495d72976f2d988fea39e588c5cc0a3 = $(`<div id="html_3495d72976f2d988fea39e588c5cc0a3" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: green; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-01</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>11:06:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>SARGENTO CABRAL 570</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>HURTO</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Sin descripción"                     </div>                 </div>             </div>             </div>`)[0];
+                popup_273188d75000c086eb3a5c554830e3c5.setContent(html_3495d72976f2d988fea39e588c5cc0a3);
+            
+        
+
+        circle_marker_3fa46b3af73b692430b10ff59727faed.bindPopup(popup_273188d75000c086eb3a5c554830e3c5)
+        ;
+
+        
+    
+    
+            var circle_marker_1ca3f801379bea20fd3dbf03354574fd = L.circleMarker(
+                [-38.34939, -59.605983],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a3c1e3583bd380e1928c1efef6b8dc66);
+        
+    
+        var popup_fd7360b9971df1bb4bf1bbddae9cba8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4407ba994d5fbc080165a9695952a829 = $(`<div id="html_4407ba994d5fbc080165a9695952a829" style="width: 100.0%; height: 100.0%;">             <div style='font-family: Arial, sans-serif; width: 260px; color: #333;'>                 <h3 style='color: green; margin-bottom: 0; font-size: 16px;'>Información del Hecho</h3>                 <hr style='border: 0; border-top: 1px solid #ccc; margin: 5px 0 10px 0;'>                 <table style='width: 100%; font-size: 12px; border-collapse: collapse;'>                     <tr><td style='padding: 2px;'><b>Fecha:</b></td><td>2026-06-12</td></tr>                     <tr><td style='padding: 2px;'><b>Hora:</b></td><td>11:45:00</td></tr>                     <tr><td style='padding: 2px;'><b>Dirección:</b></td><td>UGARTE 899</td></tr>                     <tr><td style='padding: 2px;'><b>Tipo:</b></td><td>HURTO</td></tr>                 </table>                 <div style='margin-top: 10px;'>                     <b style='font-size: 12px;'>Detalle del Hecho:</b>                     <div style='margin-top: 5px; padding: 10px; border: 1px solid #aaa; background-color: #f9f9f9;                                  font-style: italic; font-size: 11px; max-height: 100px; overflow-y: auto; line-height: 1.4;'>                         "Sin descripción"                     </div>                 </div>             </div>             </div>`)[0];
+                popup_fd7360b9971df1bb4bf1bbddae9cba8d.setContent(html_4407ba994d5fbc080165a9695952a829);
+            
+        
+
+        circle_marker_1ca3f801379bea20fd3dbf03354574fd.bindPopup(popup_fd7360b9971df1bb4bf1bbddae9cba8d)
+        ;
+
+        
+    
+    
+            var feature_group_177546ba5a843d3064f683474b16b50a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var heat_map_8f0f78a1856f8fee3f9c87714c51d62c = L.heatLayer(
+                [[-38.163812, -58.781483], [-38.173193, -58.776481], [-38.172896, -58.779742], [-38.161447, -58.776732], [-38.1691, -58.793622], [-38.165801, -58.785774], [-38.163329, -58.784782], [-38.164387, -58.78218], [-38.173079, -58.790999], [-38.34551, -59.62119], [-38.34939, -59.605983]],
+                {
+  "minOpacity": 0.2,
+  "maxZoom": 18,
+  "radius": 13,
+  "blur": 8,
+  "gradient": {
+  0.2: "blue",
+  0.4: "lime",
+  0.6: "yellow",
+  1.0: "red",
+},
+}
+            );
+        
+    
+            heat_map_8f0f78a1856f8fee3f9c87714c51d62c.addTo(feature_group_177546ba5a843d3064f683474b16b50a);
+        
+    
+            var layer_control_bdbe890089edc6ef5b7209607c5dbba7_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_7daeb90ee838b2d96bae1e8ddc53e109,
+                },
+                overlays :  {
+                    "\ud83d\udd34 Loberia - Junio 2026" : feature_group_fdbcf2af8a7bc5debdd4f77aaff8ad1f,
+                    "\ud83d\udfe2 San Cayetano - Junio 2026" : feature_group_a3c1e3583bd380e1928c1efef6b8dc66,
+                    "\ud83d\udd25 MAPA DE CALOR GENERAL" : feature_group_177546ba5a843d3064f683474b16b50a,
+                },
+            };
+            let layer_control_bdbe890089edc6ef5b7209607c5dbba7 = L.control.layers(
+                layer_control_bdbe890089edc6ef5b7209607c5dbba7_layers.base_layers,
+                layer_control_bdbe890089edc6ef5b7209607c5dbba7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_86e5e95d7c2b49e645942e276b10c795);
+
+        
+</script>
+</html>
